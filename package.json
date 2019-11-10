@@ -41,6 +41,7 @@
     "transform": {
       "^.+\\.js$": "babel-jest"
     },
+    "rootDir": "test",
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
     "moduleFileExtensions": [
       "ts",

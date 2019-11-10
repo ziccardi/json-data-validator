@@ -1,3 +1,7 @@
+export interface Config {
+  [key: string]: string | Config;
+}
+
 export interface ConstraintInterface {
-   isRespected(data: any): boolean;
+  isRespected(data: Config): boolean;
 }
