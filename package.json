@@ -1,7 +1,7 @@
 {
-  "name": "smart-validator",
+  "name": "data-validator",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simple framework for dynamic json input validation",
   "main": "index.js",
   "scripts": {
     "test": "jest --transformIgnorePatterns \"node_modules/(?!lodash-es)/\"",
@@ -14,8 +14,8 @@
     "posttest": "npm run check"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Massimiliano Ziccardi <massimiliano.ziccardi@gmail.com>",
+  "license": "Apache-2.0",
   "devDependencies": {
     "@types/jest": "^24.0.22",
     "@types/node": "^10.0.3",

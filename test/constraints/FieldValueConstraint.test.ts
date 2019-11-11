@@ -1,6 +1,11 @@
-import { FieldValueConstraint } from '../../src/constraints/FieldValueConstraint';
+import {
+  FieldValueConstraint,
+  NAME,
+} from '../../src/constraints/FieldValueConstraint';
+import { ConstraintConfiguration } from '../../src/constraints/ConstraintInterface';
+import { DataInterface } from '../../src/DataInterface';
 
-const data = {
+const data: DataInterface = {
   variant: 'android',
   appName: 'test123',
   serverKey: 'sdfsdfds',
@@ -18,7 +23,8 @@ const data = {
 
 describe('FieldValueConstraint', () => {
   it('should return false - key', () => {
-    const config = {
+    const config: ConstraintConfiguration = {
+      type: NAME,
       name: 'variant',
       value: 'ios',
     };
@@ -28,6 +34,7 @@ describe('FieldValueConstraint', () => {
   });
   it('should return false - path', () => {
     const config = {
+      type: NAME,
       name: 'nested.key1',
       value: 'value2',
     };
@@ -37,6 +44,7 @@ describe('FieldValueConstraint', () => {
   });
   it('should return true - key', () => {
     const config = {
+      type: NAME,
       name: 'variant',
       value: 'android',
     };
@@ -46,6 +54,7 @@ describe('FieldValueConstraint', () => {
   });
   it('should return true - path', () => {
     const config = {
+      type: NAME,
       name: 'nested.key1',
       value: 'value1',
     };

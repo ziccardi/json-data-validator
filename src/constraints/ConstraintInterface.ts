@@ -1,7 +1,10 @@
-export interface Config {
-  [key: string]: string | Config;
+import { DataInterface } from '../DataInterface';
+
+export interface ConstraintConfiguration {
+  type: string;
+  [key: string]: string;
 }
 
 export interface ConstraintInterface {
-  isRespected(data: Config): boolean;
+  isRespected(data: DataInterface): boolean;
 }

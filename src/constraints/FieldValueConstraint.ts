@@ -1,5 +1,9 @@
 import { get } from 'lodash-es';
-import { AbstractConstraint, Config } from './AbstractConstraint';
+import {
+  AbstractConstraint,
+  ConstraintConfiguration,
+} from './AbstractConstraint';
+import { DataInterface } from '../DataInterface';
 
 export class FieldValueConstraint extends AbstractConstraint {
   /**
@@ -7,7 +11,7 @@ export class FieldValueConstraint extends AbstractConstraint {
    * @param data a dictionary containing the data to be validated
    * @returns {boolean}
    */
-  isRespected(data: Config): boolean {
+  isRespected(data: DataInterface): boolean {
     return get(data, this.config.path as string) === this.config.value;
   }
 }
