@@ -9,25 +9,27 @@ import { DataInterface } from '../DataInterface';
  *   maxlength: 10
  * }
  */
-export class MaxLengthRule implements RuleInterface {
+export class ExactValueRule implements RuleInterface {
   private readonly config: Configuration;
-  private readonly maxlength: number;
+  private readonly exactValue: string;
 
   constructor(config: Configuration) {
     this.config = config;
-    this.maxlength = this.config.maxlength as number;
+    this.exactValue = this.config.value as string;
   }
 
   evaluate(path: string, data: DataInterface): RuleEvaluationResult {
     const value = get(data, path) as string;
-    if (!value || value.length <= this.config.maxlength) {
-      return { valid: true };
+    if (value !== this.exactValue) {
+      return {
+        valid: false,
+        message: `Value of '${path}' must be '${this.exactValue}' (found: '${value}')`,
+      };
     }
     return {
-      valid: false,
-      message: `Maximum length exceeded for '${path}'`,
+      valid: true,
     };
   }
 }
 
-export const NAME = 'MAXLENGTH';
+export const NAME = 'EXACT_VALUE';

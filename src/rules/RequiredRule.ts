@@ -1,5 +1,5 @@
 import { RuleEvaluationResult, RuleInterface } from '../RuleInterface';
-import { get } from 'lodash-es';
+import { get } from 'lodash';
 import { DataInterface } from '../DataInterface';
 
 /**

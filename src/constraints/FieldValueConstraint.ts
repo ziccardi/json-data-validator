@@ -1,8 +1,5 @@
-import { get } from 'lodash-es';
-import {
-  AbstractConstraint,
-  ConstraintConfiguration,
-} from './AbstractConstraint';
+import { get } from 'lodash';
+import { AbstractConstraint } from './AbstractConstraint';
 import { DataInterface } from '../DataInterface';
 
 export class FieldValueConstraint extends AbstractConstraint {

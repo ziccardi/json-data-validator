@@ -1,3 +1,3 @@
 export interface DataInterface {
-  [key: string]: string | DataInterface;
+  [key: string]: string | number | DataInterface;
 }
