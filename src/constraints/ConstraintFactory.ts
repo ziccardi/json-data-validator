@@ -3,6 +3,12 @@ import {
   NAME as FIELD_VALUE_CONSTRAINT,
   FieldValueConstraint,
 } from './FieldValueConstraint';
+
+import {
+  NAME as COMPOSITE_CONSTRAINT,
+  CompositeConstraint,
+} from './CompositeConstraint';
+
 import { ConstraintConfig } from '../config/ConstraintConfig';
 
 interface ConstraintDictionary {
@@ -16,6 +22,8 @@ export class ConstraintFactory {
   private static constraints: ConstraintDictionary = {
     [FIELD_VALUE_CONSTRAINT]: (config: ConstraintConfig) =>
       new FieldValueConstraint(config),
+    [COMPOSITE_CONSTRAINT]: (config: ConstraintConfig) =>
+      new CompositeConstraint(config),
   };
 
   /**

@@ -1,4 +1,5 @@
 export interface ConstraintConfig {
   type: string;
-  [key: string]: string | number;
+  subRules?: ConstraintConfig[];
+  [key: string]: string | number | ConstraintConfig[] | undefined;
 }
