@@ -1,5 +1,5 @@
 export interface RuleConfig {
   type: string;
   errorMessage?: string;
-  [key: string]: string | number | undefined;
+  [key: string]: string | number | RuleConfig[] | undefined;
 }
