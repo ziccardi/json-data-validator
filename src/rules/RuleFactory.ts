@@ -1,6 +1,6 @@
 import { NAME as REQUIRED_RULE, RequiredRule } from './RequiredRule';
 import { MaxLengthRule, NAME as MAXLENGTH_RULE } from './MaxLengthRule';
-import { NAME as COMPOSITE_RULE, CompositeRule} from "./CompositeRule";
+import { NAME as COMPOSITE_RULE, CompositeRule } from './CompositeRule';
 import { Rule } from '../Rule';
 import { ExactValueRule, NAME as EXACT_VALUE } from './ExactValueRule';
 import { RuleConfig } from '../config/RuleConfig';
