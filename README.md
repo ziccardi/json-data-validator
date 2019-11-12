@@ -56,25 +56,25 @@ set of `constraints` (evaluate as 'AND' expression) and a set of validation rule
 An example configuration could be:
 ```json
 {
-  result: [{            // FIRST RULESET
-    constraints: [{               
-      type: 'FIELD_VALUE',    // This ruleset will be executed when op will be 'add'
-      path: 'op',
-      value: 'add'
+  "result": [{            
+    "constraints": [{               
+      "type": "FIELD_VALUE",
+      "path": "op",
+      "value": "add"
     }],
-    rules: [{
-      type: 'EXACT_VALUE',
-      value: 11
+    "rules": [{
+      "type": "EXACT_VALUE",
+      "value": 11
     }]
   }, {
-    constraints: [{         // SECOND RULESET
-      type: 'FIELD_VALUE',  // This ruleset will be executed when op will be 'mul'
-      path: 'op',
-      value: 'mul'
+    "constraints": [{
+      "type": "FIELD_VALUE",
+      "path": "op",
+      "value": "mul"
     }],
-    rules: [{
-      type: 'EXACT_VALUE',
-      value: 30
+    "rules": [{
+      "type": "EXACT_VALUE",
+      "value": 30
     }]
   }]
 }
