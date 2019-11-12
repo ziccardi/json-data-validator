@@ -1,10 +1,10 @@
-import { Validator, ValidatorConfiguration } from '../src';
+import { Validator, ValidatorConfig } from '../src';
 import { NAME as FIELD_VALUE_CONSTRAINT } from '../src/constraints/FieldValueConstraint';
 import { NAME as REQUIRED_RULE } from '../src/rules/RequiredRule';
 import { NAME as MAXLENGTH_RULE } from '../src/rules/MaxLengthRule';
 import { Data } from '../src';
 
-const configuration: ValidatorConfiguration = {
+const configuration: ValidatorConfig = {
   ruleSets: [
     {
       constraints: [

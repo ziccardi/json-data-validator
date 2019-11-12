@@ -1,7 +1,7 @@
 import { Data } from '../../src';
-import { Validator, ValidatorConfiguration } from '../../src';
+import { Validator, ValidatorConfig } from '../../src';
 
-const validatorConfig: ValidatorConfiguration = {
+const validatorConfig: ValidatorConfig = {
   ruleSets: [
     {
       constraints: [

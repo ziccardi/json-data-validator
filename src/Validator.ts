@@ -3,15 +3,12 @@ import { RuleSet } from './RuleSet';
 import { Data } from './Data';
 import { RuleSetConfig } from './config/RuleSetConfig';
 import { EvaluationResult } from './Rule';
-
-export interface ValidatorConfiguration {
-  ruleSets: RuleSetConfig[];
-}
+import { ValidatorConfig } from './config/ValidatorConfig';
 
 export class Validator {
   private readonly ruleSets: RuleSet[];
 
-  constructor(config: ValidatorConfiguration) {
+  constructor(config: ValidatorConfig) {
     this.ruleSets = config.ruleSets.map((ruleSetConfig: RuleSetConfig) => {
       return RuleSetFactory.create(ruleSetConfig);
     });

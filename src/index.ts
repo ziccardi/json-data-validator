@@ -1,2 +1,3 @@
-export { Validator, ValidatorConfiguration } from './Validator';
+export { Validator } from './Validator';
 export { Data } from './Data';
+export { ValidatorConfig } from './config/ValidatorConfig';

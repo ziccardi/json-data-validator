@@ -1,5 +1,5 @@
 import { RequiredRule } from '../../src/rules/RequiredRule';
-import { Data } from '../../src/Data';
+import { Data } from '../../src';
 import { RuleConfig } from '../../src/config/RuleConfig';
 
 const config: RuleConfig = {
