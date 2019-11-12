@@ -1,2 +1,2 @@
 export { Validator, ValidatorConfiguration } from './Validator';
-export { DataInterface } from './DataInterface';
+export { Data } from './Data';

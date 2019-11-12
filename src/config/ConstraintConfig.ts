@@ -1,4 +1,4 @@
-export interface Configuration {
+export interface ConstraintConfig {
   type: string;
   [key: string]: string | number;
 }

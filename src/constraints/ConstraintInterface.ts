@@ -1,10 +1,5 @@
-import { DataInterface } from '../DataInterface';
-
-export interface ConstraintConfiguration {
-  type: string;
-  [key: string]: string;
-}
+import { Data } from '../Data';
 
 export interface ConstraintInterface {
-  isRespected(data: DataInterface): boolean;
+  isRespected(data: Data): boolean;
 }

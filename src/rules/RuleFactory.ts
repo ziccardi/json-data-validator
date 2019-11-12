@@ -1,19 +1,19 @@
 import { NAME as REQUIRED_RULE, RequiredRule } from './RequiredRule';
 import { MaxLengthRule, NAME as MAXLENGTH_RULE } from './MaxLengthRule';
-import { RuleInterface } from '../RuleInterface';
-import { Configuration } from '../ConfigurationInterface';
+import { Rule } from '../Rule';
 import { ExactValueRule, NAME as EXACT_VALUE } from './ExactValueRule';
+import { RuleConfig } from '../config/RuleConfig';
 
 export class RuleFactory {
   static readonly RULES: {
-    [key: string]: (conf: Configuration) => RuleInterface;
+    [key: string]: (conf: RuleConfig) => Rule;
   } = {
-    [REQUIRED_RULE]: () => new RequiredRule(),
-    [MAXLENGTH_RULE]: (conf: Configuration) => new MaxLengthRule(conf),
-    [EXACT_VALUE]: (conf: Configuration) => new ExactValueRule(conf),
+    [REQUIRED_RULE]: (conf: RuleConfig) => new RequiredRule(conf),
+    [MAXLENGTH_RULE]: (conf: RuleConfig) => new MaxLengthRule(conf),
+    [EXACT_VALUE]: (conf: RuleConfig) => new ExactValueRule(conf),
   };
 
-  static create(config: Configuration): RuleInterface {
+  static create(config: RuleConfig): Rule {
     const factory = RuleFactory.RULES[config.type];
     if (factory) {
       return factory(config);
@@ -24,10 +24,7 @@ export class RuleFactory {
     };
   }
 
-  static register(
-    ruletype: string,
-    factory: (conf: Configuration) => RuleInterface
-  ) {
+  static register(ruletype: string, factory: (conf: RuleConfig) => Rule) {
     RuleFactory.RULES[ruletype] = factory;
   }
 }

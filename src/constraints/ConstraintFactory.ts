@@ -1,14 +1,12 @@
-import {
-  ConstraintConfiguration,
-  ConstraintInterface,
-} from './ConstraintInterface';
+import { ConstraintInterface } from './ConstraintInterface';
 import {
   NAME as FIELD_VALUE_CONSTRAINT,
   FieldValueConstraint,
 } from './FieldValueConstraint';
+import { ConstraintConfig } from '../config/ConstraintConfig';
 
 interface ConstraintDictionary {
-  [key: string]: (config: ConstraintConfiguration) => ConstraintInterface;
+  [key: string]: (config: ConstraintConfig) => ConstraintInterface;
 }
 
 /**
@@ -16,7 +14,7 @@ interface ConstraintDictionary {
  */
 export class ConstraintFactory {
   private static constraints: ConstraintDictionary = {
-    [FIELD_VALUE_CONSTRAINT]: (config: ConstraintConfiguration) =>
+    [FIELD_VALUE_CONSTRAINT]: (config: ConstraintConfig) =>
       new FieldValueConstraint(config),
   };
 
@@ -24,7 +22,7 @@ export class ConstraintFactory {
    * Instantiate a constraint configured with the passed in configuration.
    * @param config
    */
-  static create(config: ConstraintConfiguration): ConstraintInterface {
+  static create(config: ConstraintConfig): ConstraintInterface {
     if (ConstraintFactory.constraints[config.type as string]) {
       return ConstraintFactory.constraints[config.type as string](config);
     }
@@ -38,7 +36,7 @@ export class ConstraintFactory {
    */
   static register(
     constraintType: string,
-    factory: (config: ConstraintConfiguration) => ConstraintInterface
+    factory: (config: ConstraintConfig) => ConstraintInterface
   ) {
     this.constraints[constraintType] = factory;
   }

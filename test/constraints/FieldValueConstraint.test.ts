@@ -2,10 +2,10 @@ import {
   FieldValueConstraint,
   NAME,
 } from '../../src/constraints/FieldValueConstraint';
-import { ConstraintConfiguration } from '../../src/constraints/ConstraintInterface';
-import { DataInterface } from '../../src/DataInterface';
+import { Data } from '../../src';
+import { ConstraintConfig } from '../../src/config/ConstraintConfig';
 
-const data: DataInterface = {
+const data: Data = {
   variant: 'android',
   appName: 'test123',
   serverKey: 'sdfsdfds',
@@ -23,7 +23,7 @@ const data: DataInterface = {
 
 describe('FieldValueConstraint', () => {
   it('should return false - key', () => {
-    const config: ConstraintConfiguration = {
+    const config: ConstraintConfig = {
       type: NAME,
       name: 'variant',
       value: 'ios',

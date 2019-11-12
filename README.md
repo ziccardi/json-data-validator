@@ -20,63 +20,97 @@ The configuration for the validator would be:
 
 ```js
 const validatorConfig = {
-  result: [{
-    constraints: [{
-      type: 'FIELD_VALUE',
-      path: 'op',
-      value: 'add'
-    }],
-    rules: [{
-      type: 'EXACT_VALUE',
-      value: 11
-    }]
-  }, {
-    constraints: [{
-      type: 'FIELD_VALUE',
-      path: 'op',
-      value: 'mul'
-    }],
-    rules: [{
-      type: 'EXACT_VALUE',
-      value: 30
-    }]
-  }]
+  ruleSets: [
+    { // We specify a constraint here: this ruleset is to be executed only if `op` is `add`
+      constraints: [
+        {
+          type: 'FIELD_VALUE',
+          path: 'op',
+          value: 'add',
+        },
+      ],
+      fields: {
+        result: [
+          {
+            type: 'EXACT_VALUE',
+            value: 11,
+          },
+        ],
+      },
+    },
+    { // Here another ruleset. This time, we want this to be executed only if `op` is `mul`
+      constraints: [
+        {
+          type: 'FIELD_VALUE',
+          path: 'op',
+          value: 'mul',
+        },
+      ],
+      fields: {
+        result: [
+          {
+            type: 'EXACT_VALUE',
+            value: 30,
+          },
+        ],
+      },
+    },
+  ],
 };
 ```
 
-And the data could be validate by running:
+And the data could be validated by running:
 ```js
 console.log(new Validator(validatorConfig).validate(data));
 ```
 
 # Configuration
-A validator configuration is composed of an array of RuleSet configuration and each RuleSet configuration is composed of a 
-set of `constraints` (evaluate as 'AND' expression) and a set of validation rules (the first to fail will stop any further evaluation).
+A validator configuration is composed of an array of `RuleSet` configuration.
+Each RuleSet configuration is composed of 2 elements:
+ * constraints - is a set of constraints that must evaluate to `true` for the ruleset to be executed
+ * fields - a dictionary of all the fields to be validated. For each field, a set of validation rules can be specified
 
-An example configuration could be:
+The configuration could be saved into a JSON file or into a JS file as in the example above.
+
+For example, using e JSON file the configuration would be:
 ```json
 {
-  "result": [{            
-    "constraints": [{               
-      "type": "FIELD_VALUE",
-      "path": "op",
-      "value": "add"
-    }],
-    "rules": [{
-      "type": "EXACT_VALUE",
-      "value": 11
-    }]
-  }, {
-    "constraints": [{
-      "type": "FIELD_VALUE",
-      "path": "op",
-      "value": "mul"
-    }],
-    "rules": [{
-      "type": "EXACT_VALUE",
-      "value": 30
-    }]
-  }]
+  "ruleSets": [
+    { 
+      "constraints": [
+        {
+          "type": "FIELD_VALUE",
+          "path": "op",
+          "value": "add",
+        }
+      ],
+      "fields": {
+        "result": [
+          {
+            "type": "EXACT_VALUE",
+            "value": 11,
+          }
+        ]
+      }
+    },
+    {
+      "constraints": [
+        {
+          "type": "FIELD_VALUE",
+          "path": "op",
+          "value": "mul",
+        },
+      ],
+      "fields": {
+        "result": [
+          {
+            "type": "EXACT_VALUE",
+            "value": 30
+          }
+        ]
+      }
+    }
+  ]
 }
 ```
 
@@ -138,7 +172,7 @@ To do so, simply call `ConstraintFactory.register` passing your `constraint type
 will take the config as parameter and will return an instance of your constraint.
 
 ## Adding a new custom validation rule
-Custom validation rules can be added by implementing the `RuleInterface`, then you will have to register your new rule into
+Custom validation rules can be added by implementing the `Rule`, then you will have to register your new rule into
 the `RuleFactory` class by invoking the  `RuleFactory.register` method passing the string type of your new rule and a
 factory function that will take the rule configuration as parameter.
 

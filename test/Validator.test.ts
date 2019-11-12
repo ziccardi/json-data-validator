@@ -1,11 +1,11 @@
-import { Validator, ValidatorConfiguration } from '../src/Validator';
+import { Validator, ValidatorConfiguration } from '../src';
 import { NAME as FIELD_VALUE_CONSTRAINT } from '../src/constraints/FieldValueConstraint';
 import { NAME as REQUIRED_RULE } from '../src/rules/RequiredRule';
 import { NAME as MAXLENGTH_RULE } from '../src/rules/MaxLengthRule';
-import { DataInterface } from '../src/DataInterface';
+import { Data } from '../src';
 
 const configuration: ValidatorConfiguration = {
-  'key1.key11.key22': [
+  ruleSets: [
     {
       constraints: [
         {
@@ -14,15 +14,17 @@ const configuration: ValidatorConfiguration = {
           value: 'test',
         },
       ],
-      rules: [
-        {
-          type: REQUIRED_RULE,
-        },
-        {
-          type: MAXLENGTH_RULE,
-          maxlength: 7,
-        },
-      ],
+      fields: {
+        'key1.key11.key22': [
+          {
+            type: REQUIRED_RULE,
+          },
+          {
+            type: MAXLENGTH_RULE,
+            maxlength: 7,
+          },
+        ],
+      },
     },
     {
       constraints: [
@@ -32,22 +34,24 @@ const configuration: ValidatorConfiguration = {
           value: 'test2',
         },
       ],
-      rules: [
-        {
-          type: REQUIRED_RULE,
-        },
-        {
-          type: MAXLENGTH_RULE,
-          maxlength: 2,
-        },
-      ],
+      fields: {
+        'key1.key11.key22': [
+          {
+            type: REQUIRED_RULE,
+          },
+          {
+            type: MAXLENGTH_RULE,
+            maxlength: 2,
+          },
+        ],
+      },
     },
   ],
 };
 
 describe('Validator', () => {
   it('Should success with length 7 - Key: test', () => {
-    const data: DataInterface = {
+    const data: Data = {
       key1: {
         key11: {
           key21: 'test',
@@ -61,7 +65,7 @@ describe('Validator', () => {
   });
 
   it('Should fail with length 7 - Key: test2', () => {
-    const data: DataInterface = {
+    const data: Data = {
       key1: {
         key11: {
           key21: 'test2',
@@ -73,6 +77,7 @@ describe('Validator', () => {
     const validator: Validator = new Validator(configuration);
     expect(validator.validate(data)).toEqual({
       valid: false,
+      field: 'key1.key11.key22',
       message: "Maximum length exceeded for 'key1.key11.key22'",
     });
   });

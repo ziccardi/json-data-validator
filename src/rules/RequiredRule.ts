@@ -1,19 +1,27 @@
-import { RuleEvaluationResult, RuleInterface } from '../RuleInterface';
+import { EvaluationResult, Rule } from '../Rule';
 import { get } from 'lodash';
-import { DataInterface } from '../DataInterface';
+import { Data } from '../Data';
+import { RuleConfig } from '../config/RuleConfig';
 
 /**
  * {
  *   type: 'required',
  * }
  */
-export class RequiredRule implements RuleInterface {
-  evaluate(path: string, data: DataInterface): RuleEvaluationResult {
+export class RequiredRule implements Rule {
+  private readonly config: RuleConfig;
+
+  constructor(config: RuleConfig) {
+    this.config = config;
+  }
+
+  evaluate(path: string, data: Data): EvaluationResult {
     const value = get(data, path) as string;
     if (value === null || value === undefined || value === '') {
       return {
         valid: false,
-        message: `Value '${path}' is required`,
+        field: path,
+        message: this.config.errorMessage || `Value '${path}' is required`,
       };
     }
 

@@ -1,12 +1,13 @@
-import { RuleInterface, RuleEvaluationResult } from './RuleInterface';
-import { DataInterface } from './DataInterface';
+import { Rule, EvaluationResult } from './Rule';
+import { Data } from './Data';
 import { ConstraintInterface } from './constraints/ConstraintInterface';
+import { FieldList } from './FieldList';
 
-export class RuleSet implements RuleInterface {
+export class RuleSet implements Rule {
   private constraints: ConstraintInterface[] = [];
-  private rules: RuleInterface[] = [];
+  private fields: FieldList = {};
 
-  shouldEvaluate(data: DataInterface): boolean {
+  shouldEvaluate(data: Data): boolean {
     return this.constraints.reduce(
       (res: boolean, current: ConstraintInterface): boolean => {
         res = res && current.isRespected(data);
@@ -16,9 +17,30 @@ export class RuleSet implements RuleInterface {
     );
   }
 
-  evaluate(path: string, data: DataInterface): RuleEvaluationResult {
-    for (let i = 0; i < this.rules.length; i++) {
-      const res = this.rules[i].evaluate(path, data);
+  private evaluateField(
+    field: string,
+    rules: Rule[],
+    data: Data
+  ): EvaluationResult {
+    for (let i = 0; i < rules.length; i++) {
+      const res = rules[i].evaluate(field, data);
+      if (!res.valid) {
+        return res;
+      }
+    }
+
+    return { valid: true };
+  }
+
+  evaluate(path: string, data: Data): EvaluationResult {
+    const fieldList = Object.keys(this.fields);
+
+    for (let i = 0; i < fieldList.length; i++) {
+      const res = this.evaluateField(
+        fieldList[i],
+        this.fields[fieldList[i]],
+        data
+      );
       if (!res.valid) {
         return res;
       }
@@ -34,8 +56,8 @@ export class RuleSet implements RuleInterface {
     return this;
   }
 
-  addRule(rule: RuleInterface): RuleSet {
-    this.rules.push(rule);
+  addRule(field: string, rules: Rule[]): RuleSet {
+    this.fields[field] = rules;
     return this;
   }
 }

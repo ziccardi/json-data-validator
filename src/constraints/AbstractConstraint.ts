@@ -1,18 +1,18 @@
-import { ConstraintConfiguration } from './ConstraintInterface';
 import { ConstraintInterface } from './ConstraintInterface';
-import { DataInterface } from '../DataInterface';
+import { Data } from '../Data';
+import { ConstraintConfig } from '../config/ConstraintConfig';
 
 /**
  * Base class for ruleset constraints.
  */
 export abstract class AbstractConstraint implements ConstraintInterface {
-  protected readonly config: ConstraintConfiguration;
+  protected readonly config: ConstraintConfig;
 
-  constructor(cfg: ConstraintConfiguration) {
+  constructor(cfg: ConstraintConfig) {
     this.config = cfg;
   }
 
-  abstract isRespected(data: DataInterface): boolean;
+  abstract isRespected(data: Data): boolean;
 }
 
-export { ConstraintConfiguration };
+export { ConstraintConfig };

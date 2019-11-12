@@ -1,8 +1,8 @@
-import { DataInterface } from '../../src/DataInterface';
-import { Validator, ValidatorConfiguration } from '../../src/Validator';
+import { Data } from '../../src';
+import { Validator, ValidatorConfiguration } from '../../src';
 
 const validatorConfig: ValidatorConfiguration = {
-  result: [
+  ruleSets: [
     {
       constraints: [
         {
@@ -11,12 +11,14 @@ const validatorConfig: ValidatorConfiguration = {
           value: 'add',
         },
       ],
-      rules: [
-        {
-          type: 'EXACT_VALUE',
-          value: 11,
-        },
-      ],
+      fields: {
+        result: [
+          {
+            type: 'EXACT_VALUE',
+            value: 11,
+          },
+        ],
+      },
     },
     {
       constraints: [
@@ -26,19 +28,21 @@ const validatorConfig: ValidatorConfiguration = {
           value: 'mul',
         },
       ],
-      rules: [
-        {
-          type: 'EXACT_VALUE',
-          value: 30,
-        },
-      ],
+      fields: {
+        result: [
+          {
+            type: 'EXACT_VALUE',
+            value: 30,
+          },
+        ],
+      },
     },
   ],
 };
 
 describe('ExactValueRule', () => {
   it('Should success - add', () => {
-    const data: DataInterface = {
+    const data: Data = {
       num1: 5,
       num2: 6,
       op: 'add',
@@ -51,7 +55,7 @@ describe('ExactValueRule', () => {
   });
 
   it('Should success - mul', () => {
-    const data: DataInterface = {
+    const data: Data = {
       num1: 5,
       num2: 6,
       op: 'mul',

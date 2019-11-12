@@ -1,13 +1,13 @@
 import { MaxLengthRule } from '../../src/rules/MaxLengthRule';
-import { Configuration } from '../../src/ConfigurationInterface';
-import { DataInterface } from '../../src/DataInterface';
+import { Data } from '../../src';
+import { RuleConfig } from '../../src/config/RuleConfig';
 
-const config: Configuration = {
+const config: RuleConfig = {
   type: 'maxlength',
   maxlength: 10,
 };
 
-const data: DataInterface = {
+const data: Data = {
   text10: '0123456789',
   text5: '01234',
   test11: '01234567890',
@@ -22,12 +22,14 @@ describe('MaxLengthRule', () => {
   it('Should fail - key', () => {
     expect(new MaxLengthRule(config).evaluate('test11', data)).toEqual({
       message: "Maximum length exceeded for 'test11'",
+      field: 'test11',
       valid: false,
     });
   });
   it('Should fail - path', () => {
     expect(new MaxLengthRule(config).evaluate('nested.test12', data)).toEqual({
       message: "Maximum length exceeded for 'nested.test12'",
+      field: 'nested.test12',
       valid: false,
     });
   });
