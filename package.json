@@ -1,5 +1,5 @@
 {
-  "name": "data-validator",
+  "name": "json-data-validator",
   "version": "0.1.0",
   "description": "Simple framework for dynamic json input validation",
   "main": "build/src/index.js",
@@ -44,5 +44,9 @@
       "json",
       "node"
     ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ziccardi/json-data-validator.git"
   }
 }
