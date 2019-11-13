@@ -12,16 +12,16 @@ const validatorConfig: ValidatorConfig = {
             subRules: [
               {
                 type: 'EXACT_VALUE',
-                value: 'mul'
+                value: 'mul',
               },
               {
                 type: 'EXACT_VALUE',
-                value: 'add'
-              }
-            ]
-          }
-        ]
-      }
+                value: 'add',
+              },
+            ],
+          },
+        ],
+      },
     },
     {
       constraints: [
@@ -101,5 +101,4 @@ describe('CompositeRule', () => {
       valid: false,
     });
   });
-
 });
