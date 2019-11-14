@@ -1,6 +1,6 @@
 {
   "name": "json-data-validator",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Simple framework for dynamic json input validation",
   "main": "build/src/index.js",
   "types": "build/src/index.d.ts",
@@ -27,9 +27,13 @@
     "typescript": "~3.5.0"
   },
   "dependencies": {
+    "@types/is-valid-path": "^0.1.0",
     "@types/lodash": "^4.14.146",
+    "@types/validator": "^10.11.3",
     "add": "^2.0.6",
+    "is-valid-path": "^0.1.1",
     "lodash": "^4.17.15",
+    "validator": "^12.0.0",
     "yarn": "^1.19.1"
   },
   "jest": {

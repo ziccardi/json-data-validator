@@ -143,7 +143,7 @@ Configuration
 
 ### MaxLength Rule
 
-This rule checks if the value at the specific path as a length less than or equal to the specified length.
+This rule checks if the value has a length less than or equal to the specified length.
 
 Configuration
 ```json
@@ -155,11 +155,25 @@ Configuration
 
 ### Required Rule
 
-This rule checks if the value at the specific path as a value.
+This rule checks if the value is non null and non empty.
 Configuration
 ```json
 {
   "type": "REQUIRED",
+}
+```
+
+### ValidUrlRule
+
+This rule checks if the value is a valid url  
+
+Configuration
+```json
+{
+  "type": "VALID_URL",
+  "require_tld": true,
+  "require_host": true,
+  "require_protocol": true
 }
 ```
 
