@@ -33,4 +33,14 @@ describe('ValidUrlRule', () => {
       field: 'nested.nested.url2',
     });
   });
+
+  it('Should fail - undefined', () => {
+    expect(
+      RuleFactory.create(config).evaluate('nested.nested.urlundefined', data)
+    ).toEqual({
+      valid: false,
+      message: 'Value nested.nested.urlundefined is not a valid URL string',
+      field: 'nested.nested.urlundefined',
+    });
+  });
 });
