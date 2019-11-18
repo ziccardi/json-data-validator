@@ -13,6 +13,11 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    - run: npm run check
-    - run: npm install
-    - run: npm run test
+    - name: Installing deps
+      run: npm install
+
+    - name: Checking Style
+      run: npm run check
+
+    - name: Running tests
+      run: npm run test
