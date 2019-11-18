@@ -22,7 +22,8 @@ export class RuleFactory {
       new GenericValidator(
         conf,
         (value: string) =>
-          value && validator.isURL(value, {
+          value &&
+          validator.isURL(value, {
             require_tld: !!conf.require_tld,
             require_host: !!conf.require_host,
             require_protocol:
