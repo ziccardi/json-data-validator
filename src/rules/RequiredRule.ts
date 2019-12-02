@@ -1,32 +1,16 @@
-import { EvaluationResult, Rule } from '../Rule';
-import { get } from 'lodash';
-import { Data } from '../Data';
 import { RuleConfig } from '../config/RuleConfig';
+import { GenericValidator } from './GenericValidator';
 
 /**
  * {
  *   type: 'required',
  * }
  */
-export class RequiredRule implements Rule {
-  private readonly config: RuleConfig;
-
-  constructor(config: RuleConfig) {
-    this.config = config;
-  }
-
-  evaluate(path: string, data: Data): EvaluationResult {
-    const value = get(data, path) as string;
-    if (value === null || value === undefined || value === '') {
-      return {
-        valid: false,
-        field: path,
-        message: this.config.errorMessage || `Value '${path}' is required`,
-      };
-    }
-
-    return { valid: true };
-  }
-}
+export const rule = (config: RuleConfig) =>
+  new GenericValidator(
+    config,
+    (value: string) => value !== null && value !== undefined && value !== '',
+    `Value '%s' is required`
+  );
 
 export const NAME = 'REQUIRED';
