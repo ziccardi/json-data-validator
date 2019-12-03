@@ -17,8 +17,13 @@ const isAfter = (config: RuleConfig) =>
   new GenericValidator(
     config,
     (value: string) => {
-      const date = moment(value, config.format as string || 'DD/MM/YYYY');
-      const referenceDate =  config.date ? moment(config.date as string, config.format as string || 'DD/MM/YYYY') : moment();
+      const date = moment(value, (config.format as string) || 'DD/MM/YYYY');
+      const referenceDate = config.date
+        ? moment(
+            config.date as string,
+            (config.format as string) || 'DD/MM/YYYY'
+          )
+        : moment();
       return date.isAfter(referenceDate);
     },
     `Date at '%s' is not after '${config.date || new Date()}'`
@@ -65,13 +70,17 @@ const isBefore = (config: RuleConfig) =>
   new GenericValidator(
     config,
     (value: string) => {
-      const date = moment(value, config.format as string || 'DD/MM/YYYY');
-      const referenceDate =  config.date ? moment(config.date as string, config.format as string || 'DD/MM/YYYY') : moment();
+      const date = moment(value, (config.format as string) || 'DD/MM/YYYY');
+      const referenceDate = config.date
+        ? moment(
+            config.date as string,
+            (config.format as string) || 'DD/MM/YYYY'
+          )
+        : moment();
       return date.isBefore(referenceDate);
     },
     `Date at '%s' is not before '${config.date || new Date()}'`
   );
-
 
 const isBIC = (config: RuleConfig) =>
   new GenericValidator(
@@ -98,7 +107,7 @@ const isDataURI = (config: RuleConfig) =>
   new GenericValidator(
     config,
     (value: string) => validator.isDataURI(value),
-    `Value '%s' is not a valid credit data URI`
+    `Value '%s' is not a valid data URI`
   );
 
 const isDecimal = (config: RuleConfig) =>
@@ -134,8 +143,8 @@ const isHash = (config: RuleConfig) =>
   new GenericValidator(
     config,
     (value: string) =>
-      validator.isHash(value, config.algorithm! as HashAlgorithm),
-    `Value '%s' is not a valid ${config.algorithm} hash`
+      validator.isHash(value, (config.algorithm || 'sha1') as HashAlgorithm),
+    `Value '%s' is not a valid ${config.algorithm || 'sha1'} hash`
   );
 
 const isHexadecimal = (config: RuleConfig) =>
