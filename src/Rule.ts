@@ -7,5 +7,6 @@ export interface EvaluationResult {
 }
 
 export interface Rule {
+  type: () => string;
   evaluate(path: string, data: Data): EvaluationResult;
 }

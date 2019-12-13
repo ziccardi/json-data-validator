@@ -42,4 +42,6 @@ export class GenericValidator implements Rule {
 
     return { valid: true };
   }
+
+  type = () => this.config.type;
 }

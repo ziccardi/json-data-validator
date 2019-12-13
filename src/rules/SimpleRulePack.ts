@@ -164,7 +164,8 @@ const isHexColor = (config: RuleConfig) =>
 const isIn = (config: RuleConfig) =>
   new GenericValidator(
     config,
-    (value: string) => validator.isIn(value, config.values as string[]),
+    (value: string) =>
+      validator.isIn(value, (config.values as string).split(',')),
     `Value '%s' is not in ${config.values}`
   );
 
@@ -325,7 +326,10 @@ const isPort = (config: RuleConfig) =>
 const matches = (config: RuleConfig) =>
   new GenericValidator(
     config,
-    (value: string) => validator.matches(value, config.pattern! as string),
+    (value: string) => {
+      const ret = validator.matches(value, config.pattern! as string);
+      return ret;
+    },
     `Value '%s' does not match '${config.pattern}'`
   );
 

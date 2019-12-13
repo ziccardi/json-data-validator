@@ -1,17 +1,16 @@
 import { RuleFactory } from '../../../src/rules/RuleFactory';
 import { test } from '../../utils';
 
-describe('isDivisibleBy', () => {
+describe('isISSN', () => {
   const rule = RuleFactory.create({
-    type: 'isDivisibleBy',
-    number: '3',
+    type: 'isISSN',
   });
 
-  it('Should evaluate if string is a number divisible by 3', () => {
+  it('Should evaluate if string is an ISSN string', () => {
     test(rule, {
       path: 'field1.field2',
-      valid: ['12', '0'],
-      invalid: ['13'],
+      valid: ['2049-3630', '20493630'],
+      invalid: ['2049363'],
     });
   });
 });

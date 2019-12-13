@@ -1,17 +1,16 @@
 import { RuleFactory } from '../../../src/rules/RuleFactory';
 import { test } from '../../utils';
 
-describe('isDivisibleBy', () => {
+describe('isLatLong', () => {
   const rule = RuleFactory.create({
-    type: 'isDivisibleBy',
-    number: '3',
+    type: 'isLatLong',
   });
 
-  it('Should evaluate if string is a number divisible by 3', () => {
+  it('Should evaluate if string is a valid Latitude/Longitude string', () => {
     test(rule, {
       path: 'field1.field2',
-      valid: ['12', '0'],
-      invalid: ['13'],
+      valid: ['10,10', '10,-0.5232'],
+      invalid: ['10'],
     });
   });
 });

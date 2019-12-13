@@ -1,17 +1,16 @@
 import { RuleFactory } from '../../../src/rules/RuleFactory';
 import { test } from '../../utils';
 
-describe('isDivisibleBy', () => {
+describe('isMACAddress', () => {
   const rule = RuleFactory.create({
-    type: 'isDivisibleBy',
-    number: '3',
+    type: 'isMACAddress',
   });
 
-  it('Should evaluate if string is a number divisible by 3', () => {
+  it('Should evaluate if string is a MAC address', () => {
     test(rule, {
       path: 'field1.field2',
-      valid: ['12', '0'],
-      invalid: ['13'],
+      valid: ['0a:f9:d3:be:a1:ca'],
+      invalid: ['0a:f9:d3:be:a1'],
     });
   });
 });

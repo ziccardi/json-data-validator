@@ -1,22 +1,19 @@
 import { RuleFactory } from '../../../src/rules/RuleFactory';
+import { test } from '../../utils';
 
 describe('isDataURI', () => {
   const rule = RuleFactory.create({
     type: 'isDataURI',
   });
 
-  it('Should succeed', () => {
-    let res = rule.evaluate('field1.field2', {
-      field1: { field2: 'data:,Hello%2C%20World!' },
-    });
-    expect(res).toEqual({
-      valid: true,
-    });
-    res = rule.evaluate('field1.field2', {
-      field1: { field2: 'data:text/plain;base64,SGVsbG8sIFdvcmxkIQ%3D%3D' },
-    });
-    expect(res).toEqual({
-      valid: true,
+  it('Should evaluate if string is a data URI', () => {
+    test(rule, {
+      path: 'field1.field2',
+      valid: [
+        'data:,Hello%2C%20World!',
+        'data:text/plain;base64,SGVsbG8sIFdvcmxkIQ%3D%3D',
+      ],
+      invalid: [],
     });
   });
 });

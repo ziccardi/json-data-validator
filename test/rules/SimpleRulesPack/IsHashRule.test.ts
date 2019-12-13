@@ -1,4 +1,5 @@
 import { RuleFactory } from '../../../src/rules/RuleFactory';
+import { test } from '../../utils';
 
 describe('isHash', () => {
   const SHA1 = '0a4d55a8d778e5022fab701977c5d840bbc486d0';
@@ -13,22 +14,10 @@ describe('isHash', () => {
       type: 'isHash',
     });
 
-    expect(
-      rule.evaluate('field1.field2', {
-        field1: { field2: SHA1 },
-      })
-    ).toEqual({
-      valid: true,
-    });
-
-    expect(
-      rule.evaluate('field1.field2', {
-        field1: { field2: SHA256 },
-      })
-    ).toEqual({
-      field: 'field1.field2',
-      message: "Value 'field1.field2' is not a valid sha1 hash",
-      valid: false,
+    test(rule, {
+      path: 'field1.field2',
+      valid: [SHA1],
+      invalid: [MD5, SHA256, SHA512, 'Hello World'],
     });
   });
 
@@ -38,22 +27,10 @@ describe('isHash', () => {
       algorithm: 'sha1',
     });
 
-    expect(
-      rule.evaluate('field1.field2', {
-        field1: { field2: SHA1 },
-      })
-    ).toEqual({
-      valid: true,
-    });
-
-    expect(
-      rule.evaluate('field1.field2', {
-        field1: { field2: SHA256 },
-      })
-    ).toEqual({
-      field: 'field1.field2',
-      message: "Value 'field1.field2' is not a valid sha1 hash",
-      valid: false,
+    test(rule, {
+      path: 'field1.field2',
+      valid: [SHA1],
+      invalid: [MD5, SHA256, SHA512, 'Hello World'],
     });
   });
 
@@ -63,14 +40,10 @@ describe('isHash', () => {
       algorithm: 'sha256',
     });
 
-    expect(
-      rule.evaluate('field1.field2', {
-        field1: { field2: SHA1 },
-      })
-    ).toEqual({
-      field: 'field1.field2',
-      message: "Value 'field1.field2' is not a valid sha256 hash",
-      valid: false,
+    test(rule, {
+      path: 'field1.field2',
+      valid: [SHA256],
+      invalid: [MD5, SHA1, SHA512, 'Hello World'],
     });
   });
 
@@ -80,22 +53,10 @@ describe('isHash', () => {
       algorithm: 'md5',
     });
 
-    expect(
-      rule.evaluate('field1.field2', {
-        field1: { field2: MD5 },
-      })
-    ).toEqual({
-      valid: true,
-    });
-
-    expect(
-      rule.evaluate('field1.field2', {
-        field1: { field2: SHA1 },
-      })
-    ).toEqual({
-      field: 'field1.field2',
-      message: "Value 'field1.field2' is not a valid md5 hash",
-      valid: false,
+    test(rule, {
+      path: 'field1.field2',
+      valid: [MD5],
+      invalid: [SHA1, SHA256, SHA512, 'Hello World'],
     });
   });
 });

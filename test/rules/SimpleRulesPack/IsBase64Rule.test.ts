@@ -1,27 +1,16 @@
 import { RuleFactory } from '../../../src/rules/RuleFactory';
+import { test } from '../../utils';
 
 describe('isBase64', () => {
   const rule = RuleFactory.create({
     type: 'isBase64',
   });
 
-  it('Should fails', () => {
-    const res = rule.evaluate('field1.field2', {
-      field1: { field2: 'ABCDEFGHILMNOPQ' },
-    });
-    expect(res).toEqual({
-      field: 'field1.field2',
-      valid: false,
-      message: "Value 'field1.field2' is not BASE64'",
-    });
-  });
-
-  it('Should succeed', () => {
-    const res = rule.evaluate('field1.field2', {
-      field1: { field2: 'SGVsbG8gV29ybGQ=' },
-    });
-    expect(res).toEqual({
-      valid: true,
+  it('Should evaluate if string is a Base64 string', () => {
+    test(rule, {
+      path: 'field1.field2',
+      valid: ['SGVsbG8gV29ybGQ='],
+      invalid: ['ABCDEFGHILMNOPQ'],
     });
   });
 });

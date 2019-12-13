@@ -1,4 +1,5 @@
 import { RuleFactory } from '../../../src/rules/RuleFactory';
+import { test } from '../../utils';
 
 describe('contains', () => {
   const rule = RuleFactory.create({
@@ -6,21 +7,11 @@ describe('contains', () => {
     seed: 'abcdef',
   });
 
-  it('Should fail', () => {
-    const res = rule.evaluate('field1.field2', { field1: { field2: 'test' } });
-    expect(res).toEqual({
-      field: 'field1.field2',
-      message: "Value 'field1.field2' does not contains 'abcdef'",
-      valid: false,
-    });
-  });
-
-  it('Should succeed', () => {
-    const res = rule.evaluate('field1.field2', {
-      field1: { field2: 'testabcdefaaaaaa' },
-    });
-    expect(res).toEqual({
-      valid: true,
+  it('Should evaluate if string in contained or not', () => {
+    test(rule, {
+      path: 'field1.field2',
+      valid: ['testabcdefaaaaaa'],
+      invalid: ['test'],
     });
   });
 });

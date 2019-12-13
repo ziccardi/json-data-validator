@@ -52,4 +52,6 @@ export class CompositeRule implements Rule {
     }
     return result;
   }
+
+  type = () => CompositeRule.NAME;
 }
