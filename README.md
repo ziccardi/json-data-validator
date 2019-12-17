@@ -130,52 +130,7 @@ Configuration
 
 ## Validation Rules
 
-### ExactValue Rule
-
-Check that a key has a specified value.
-Configuration
-```json
-{
-  "type": "EXACT_VALUE",
-  "value": "the value that the property should have"
-}
-```
-
-### MaxLength Rule
-
-This rule checks if the value has a length less than or equal to the specified length.
-
-Configuration
-```json
-{
-  "type": "MAXLENGTH",
-  "maxlength": 10
-}
-```
-
-### Required Rule
-
-This rule checks if the value is non null and non empty.
-Configuration
-```json
-{
-  "type": "REQUIRED",
-}
-```
-
-### ValidUrlRule
-
-This rule checks if the value is a valid url  
-
-Configuration
-```json
-{
-  "type": "VALID_URL",
-  "require_tld": true,
-  "require_host": true,
-  "require_protocol": true
-}
-```
+The list of the supported rules can be found [here](./docs/rules.md)
 
 ## Adding new custom constraints
 Custom constraints can be added by extending the `AbstractConstraint` class and implementing the `isRespected` method.
@@ -190,3 +145,6 @@ Custom validation rules can be added by implementing the `Rule`, then you will h
 the `RuleFactory` class by invoking the  `RuleFactory.register` method passing the string type of your new rule and a
 factory function that will take the rule configuration as parameter.
 
+## Examples
+
+All the examples can be found [here](./src/example)

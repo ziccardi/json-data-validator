@@ -28,7 +28,7 @@ export class GenericValidator implements Rule {
     this.defaultErrorMessage = defaultErrorMessage;
   }
   evaluate(path: string, data: Data): EvaluationResult {
-    const value = get(data, path) as string;
+    const value = get(data, (this.config.path as string) || path) as string;
 
     if (!this.validatorFunction(value)) {
       return {

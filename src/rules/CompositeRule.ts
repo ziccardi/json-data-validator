@@ -9,7 +9,6 @@ import { RuleFactory } from './RuleFactory';
  * Configuration:
  * type: 'COMPOSITE'
  * algorithm: 'all' | 'any'. If `all`, the all the sub-rules must return `true`, if `any` at least one of the sub-rules ust return `true`
- * path: 'path.to.the.field.to.evaluate'
  * subrules: [] The list of sub-rules.
  */
 export class CompositeRule implements Rule {
