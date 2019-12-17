@@ -54,6 +54,21 @@ describe('ExactValueRule', () => {
     });
   });
 
+  it('Should fail - add', () => {
+    const data: Data = {
+      num1: 5,
+      num2: 6,
+      op: 'add',
+      result: 30,
+    };
+
+    expect(new Validator(validatorConfig).validate(data)).toEqual({
+      valid: false,
+      field: 'result',
+      message: "Value of 'result' must be '11'",
+    });
+  });
+
   it('Should success - mul', () => {
     const data: Data = {
       num1: 5,
@@ -64,6 +79,21 @@ describe('ExactValueRule', () => {
 
     expect(new Validator(validatorConfig).validate(data)).toEqual({
       valid: true,
+    });
+  });
+
+  it('Should fail - mul', () => {
+    const data: Data = {
+      num1: 5,
+      num2: 6,
+      op: 'mul',
+      result: 11,
+    };
+
+    expect(new Validator(validatorConfig).validate(data)).toEqual({
+      valid: false,
+      field: 'result',
+      message: "Value of 'result' must be '30'",
     });
   });
 });

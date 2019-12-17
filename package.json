@@ -1,6 +1,6 @@
 {
   "name": "json-data-validator",
-  "version": "0.3.3",
+  "version": "0.4.0",
   "description": "Simple framework for dynamic json input validation",
   "main": "build/src/index.js",
   "types": "build/src/index.d.ts",
@@ -14,7 +14,13 @@
     "pretest": "npm run compile",
     "posttest": "npm run check"
   },
-  "keywords": [],
+  "keywords": [
+    "validator",
+    "validation",
+    "validate",
+    "json",
+    "configurable"
+  ],
   "author": "Massimiliano Ziccardi <massimiliano.ziccardi@gmail.com>",
   "license": "Apache-2.0",
   "devDependencies": {
@@ -33,6 +39,7 @@
     "add": "^2.0.6",
     "is-valid-path": "^0.1.1",
     "lodash": "^4.17.15",
+    "moment": "^2.24.0",
     "validator": "^12.0.0",
     "yarn": "^1.19.1"
   },

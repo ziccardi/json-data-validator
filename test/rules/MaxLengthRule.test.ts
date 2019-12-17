@@ -1,9 +1,9 @@
-import { MaxLengthRule } from '../../src/rules/MaxLengthRule';
 import { Data } from '../../src';
 import { RuleConfig } from '../../src/config/RuleConfig';
+import { RuleFactory } from '../../src/rules/RuleFactory';
 
 const config: RuleConfig = {
-  type: 'maxlength',
+  type: 'MAXLENGTH',
   maxlength: 10,
 };
 
@@ -20,32 +20,32 @@ const data: Data = {
 
 describe('MaxLengthRule', () => {
   it('Should fail - key', () => {
-    expect(new MaxLengthRule(config).evaluate('test11', data)).toEqual({
+    expect(RuleFactory.create(config).evaluate('test11', data)).toEqual({
       message: "Maximum length exceeded for 'test11'",
       field: 'test11',
       valid: false,
     });
   });
   it('Should fail - path', () => {
-    expect(new MaxLengthRule(config).evaluate('nested.test12', data)).toEqual({
+    expect(RuleFactory.create(config).evaluate('nested.test12', data)).toEqual({
       message: "Maximum length exceeded for 'nested.test12'",
       field: 'nested.test12',
       valid: false,
     });
   });
   it('Should not fail - key - exactly maxlength', () => {
-    expect(new MaxLengthRule(config).evaluate('test10', data)).toEqual({
+    expect(RuleFactory.create(config).evaluate('test10', data)).toEqual({
       valid: true,
     });
   });
   it('Should not fail - path - exactly maxlength', () => {
-    expect(new MaxLengthRule(config).evaluate('nested.test10', data)).toEqual({
+    expect(RuleFactory.create(config).evaluate('nested.test10', data)).toEqual({
       valid: true,
     });
   });
   it('Should not fail - path - value undefined', () => {
     expect(
-      new MaxLengthRule(config).evaluate('nested.test-undefined', data)
+      RuleFactory.create(config).evaluate('nested.test-undefined', data)
     ).toEqual({
       valid: true,
     });

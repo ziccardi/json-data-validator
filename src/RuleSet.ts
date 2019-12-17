@@ -60,4 +60,6 @@ export class RuleSet implements Rule {
     this.fields[field] = rules;
     return this;
   }
+
+  type = () => 'RULESET';
 }
