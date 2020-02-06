@@ -323,6 +323,14 @@ const isPort = (config: RuleConfig) =>
     `Value '%s' is not a valid port number`
   );
 
+const isUUID = (config: RuleConfig) =>
+  new GenericValidator(
+    config,
+    (value: string) =>
+      validator.isUUID(value, (config.version as string) || 'all'),
+    "Value '%s' is not a valid UUID"
+  );
+
 const matches = (config: RuleConfig) =>
   new GenericValidator(
     config,
@@ -376,5 +384,6 @@ export const PACK = {
   isOctal,
   isPort,
   isRFC3339,
+  isUUID,
   matches,
 };
