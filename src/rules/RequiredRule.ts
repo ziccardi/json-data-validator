@@ -10,7 +10,8 @@ export const rule = (config: RuleConfig) =>
   new GenericValidator(
     config,
     (value: string) => value !== null && value !== undefined && value !== '',
-    `Value '%s' is required`
+    `Value '%s' is required`,
+    true
   );
 
 export const NAME = 'REQUIRED';

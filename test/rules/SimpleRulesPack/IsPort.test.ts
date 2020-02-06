@@ -10,7 +10,7 @@ describe('isPort', () => {
     test(rule, {
       path: 'field1.field2',
       valid: ['0', '22', '80', '443', '3000', '8080', '65535'],
-      invalid: ['', '-1', '65536'],
+      invalid: ['-1', '65536'],
     });
   });
 });

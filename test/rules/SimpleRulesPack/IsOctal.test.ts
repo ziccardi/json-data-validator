@@ -10,7 +10,7 @@ describe('isOctal', () => {
     test(rule, {
       path: 'field1.field2',
       valid: ['076543210', '0o01234567'],
-      invalid: ['abcdefg', '012345678', '012345670c', '00c12345670c', '', '..'],
+      invalid: ['abcdefg', '012345678', '012345670c', '00c12345670c', '..'],
     });
   });
 });
