@@ -4,6 +4,7 @@ export interface EvaluationResult {
   valid: boolean;
   field?: string;
   message?: string;
+  details?: EvaluationResult[];
 }
 
 export interface Rule {

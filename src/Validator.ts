@@ -14,16 +14,28 @@ export class Validator {
     });
   }
 
-  validate(data: Data): EvaluationResult {
+  validate(data: Data, multi = false): EvaluationResult {
+    const result: EvaluationResult = { valid: true, details: [] };
+
     for (let i = 0; i < this.ruleSets.length; i++) {
       const ruleSet = this.ruleSets[i];
       if (ruleSet.shouldEvaluate(data)) {
-        const res = this.ruleSets[i].evaluate('', data);
+        const res = this.ruleSets[i].evaluate('', data, multi);
         if (!res.valid) {
-          return res;
+          if (multi) {
+            result.valid = false;
+            result.details = result.details || ([] as EvaluationResult[]);
+            result.details = result.details.concat(res.details!);
+          } else {
+            return res;
+          }
         }
       }
     }
-    return { valid: true };
+
+    if (!multi) {
+      delete result.details;
+    }
+    return result;
   }
 }

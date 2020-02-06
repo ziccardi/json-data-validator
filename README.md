@@ -64,6 +64,28 @@ And the data could be validated by running:
 console.log(new Validator(validatorConfig).validate(data));
 ```
 
+The validator will stop at the first error. If that is not the desired behaviour, it should be called as:
+
+```js
+console.log(new Validator(validatorConfig).validate(data, true));
+
+```
+
+This way it will return an object like:
+
+```js
+{
+   valid: false,
+   details: [{
+      field: 'field1',
+      message: 'error message'
+   },{
+      field: 'field2',
+      message: 'error message2'
+   }]
+}
+```
+
 # Configuration
 A validator configuration is composed of an array of `RuleSet` configuration.
 Each RuleSet configuration is composed of 2 elements:
