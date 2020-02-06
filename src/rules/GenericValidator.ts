@@ -11,6 +11,7 @@ export class GenericValidator implements Rule {
   private readonly config: RuleConfig;
   private readonly validatorFunction: (path: string) => boolean;
   private readonly defaultErrorMessage: string;
+  private readonly evaluateEmptyString: boolean;
 
   /**
    * Constructor
@@ -21,16 +22,18 @@ export class GenericValidator implements Rule {
   constructor(
     config: RuleConfig,
     validatorFunction: (value: string) => boolean,
-    defaultErrorMessage: string
+    defaultErrorMessage: string,
+    evaluateEmptyString = false
   ) {
     this.config = config;
     this.validatorFunction = validatorFunction;
     this.defaultErrorMessage = defaultErrorMessage;
+    this.evaluateEmptyString = evaluateEmptyString;
   }
   evaluate(path: string, data: Data): EvaluationResult {
     const value = get(data, (this.config.path as string) || path) as string;
 
-    if (!this.validatorFunction(value)) {
+    if ((value || this.evaluateEmptyString) && !this.validatorFunction(value)) {
       return {
         valid: false,
         field: path,

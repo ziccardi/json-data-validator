@@ -13,4 +13,12 @@ describe('isHexadecimal', () => {
       invalid: ['1234567890ABCDEFG'],
     });
   });
+
+  it('Undefined should return valid', () => {
+    test(rule, {
+      path: 'field1.field2',
+      valid: [undefined],
+      invalid: ['1234567890ABCDEFG'],
+    });
+  });
 });
