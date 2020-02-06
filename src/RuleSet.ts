@@ -32,7 +32,9 @@ export class RuleSet implements Rule {
     return { valid: true };
   }
 
-  evaluate(path: string, data: Data): EvaluationResult {
+  evaluate(path: string, data: Data, multi = false): EvaluationResult {
+    const ret: EvaluationResult = { valid: true };
+
     const fieldList = Object.keys(this.fields);
 
     for (let i = 0; i < fieldList.length; i++) {
@@ -42,13 +44,17 @@ export class RuleSet implements Rule {
         data
       );
       if (!res.valid) {
-        return res;
+        if (multi) {
+          ret.valid = false;
+          ret.details = ret.details || [];
+          ret.details.push(res);
+        } else {
+          return res;
+        }
       }
     }
 
-    return {
-      valid: true,
-    };
+    return ret;
   }
 
   addConstraint(constraint: ConstraintInterface): RuleSet {
