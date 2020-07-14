@@ -3,6 +3,7 @@
 A simple library to be used to validate JSON file content.
 The validation can be configured using the JSON file format and different kind of validation can be performed when 
 some `constraint` is evaluated.
+Alternatively, the validator can be configured using fluent API.
 
 Suppose we have to validate this data:
 ```js
@@ -62,6 +63,21 @@ const validatorConfig = {
 And the data could be validated by running:
 ```js
 console.log(new Validator(validatorConfig).validate(data));
+```
+
+The exact same result can be obtained using the fluent API:
+```typescript
+const validator = validatorBuilder()
+    .newRule()
+        .withFieldValueConstraint('op', 'add')
+        .withField('result')
+            .validate(RuleBuilder.exactValue.withValue(11))
+    .newRule()
+        .withFieldValueConstraint('op', 'mul')
+            .validate(RuleBuilder.exactValue.withValue(30))
+    .build();
+
+console.log(validator.validate(data));
 ```
 
 The validator will stop at the first error. If that is not the desired behaviour, it should be called as:

@@ -9,7 +9,9 @@ import { GenericValidator } from './GenericValidator';
 export const rule = (config: RuleConfig) =>
   new GenericValidator(
     config,
-    (value: string) => value !== null && value !== undefined && value !== '',
+    (value: string) => {
+      return value !== null && value !== undefined && value !== '';
+    },
     `Value '%s' is required`,
     true
   );
