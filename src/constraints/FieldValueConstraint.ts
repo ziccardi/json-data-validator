@@ -1,6 +1,6 @@
-import { get } from 'lodash';
-import { AbstractConstraint } from './AbstractConstraint';
-import { Data } from '../Data';
+import {get} from 'lodash';
+import {AbstractConstraint} from './AbstractConstraint';
+import {Data} from '../Data';
 
 /**
  * This constraint checks that the value retrieved a specified path has a specific value.

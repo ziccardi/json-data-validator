@@ -1,5 +1,5 @@
-import { RuleConfig } from '../config/RuleConfig';
-import { GenericValidator } from './GenericValidator';
+import {RuleConfig} from '../config/RuleConfig';
+import {GenericValidator} from './GenericValidator';
 
 /**
  * {
@@ -12,7 +12,7 @@ export const rule = (config: RuleConfig) =>
     (value: string) => {
       return value !== null && value !== undefined && value !== '';
     },
-    `Value '%s' is required`,
+    "Value '%s' is required",
     true
   );
 

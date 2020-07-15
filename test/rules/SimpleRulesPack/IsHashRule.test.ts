@@ -1,5 +1,5 @@
-import { RuleFactory } from '../../../src/rules/RuleFactory';
-import { test } from '../../utils';
+import {RuleFactory} from '../../../src/rules/RuleFactory';
+import {test} from '../../utils';
 
 describe('isHash', () => {
   const SHA1 = '0a4d55a8d778e5022fab701977c5d840bbc486d0';

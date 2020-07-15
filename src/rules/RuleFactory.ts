@@ -1,7 +1,7 @@
-import { Rule } from '../Rule';
-import { RuleConfig } from '../config/RuleConfig';
-import { RULE_DICTIONARY } from './index';
-import { PACK } from './SimpleRulePack';
+import {Rule} from '../Rule';
+import {RuleConfig} from '../config/RuleConfig';
+import {RULE_DICTIONARY} from './index';
+import {PACK} from './SimpleRulePack';
 
 interface RuleDictionary {
   [key: string]: (conf: RuleConfig) => Rule;

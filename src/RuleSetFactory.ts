@@ -1,10 +1,10 @@
-import { RuleSet } from './RuleSet';
-import { RuleFactory } from './rules/RuleFactory';
-import { ConstraintFactory } from './constraints/ConstraintFactory';
-import { RuleSetConfig } from './config/RuleSetConfig';
-import { ConstraintConfig } from './config/ConstraintConfig';
-import { RuleConfig } from './config/RuleConfig';
-import { Rule } from './Rule';
+import {RuleSet} from './RuleSet';
+import {RuleFactory} from './rules/RuleFactory';
+import {ConstraintFactory} from './constraints/ConstraintFactory';
+import {RuleSetConfig} from './config/RuleSetConfig';
+import {ConstraintConfig} from './config/ConstraintConfig';
+import {RuleConfig} from './config/RuleConfig';
+import {Rule} from './Rule';
 
 export class RuleSetFactory {
   static create(rulesetConfig: RuleSetConfig): RuleSet {

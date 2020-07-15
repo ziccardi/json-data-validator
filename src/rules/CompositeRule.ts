@@ -1,7 +1,7 @@
-import { EvaluationResult, Rule } from '../Rule';
-import { Data } from '../Data';
-import { RuleConfig } from '../config/RuleConfig';
-import { RuleFactory } from './RuleFactory';
+import {EvaluationResult, Rule} from '../Rule';
+import {Data} from '../Data';
+import {RuleConfig} from '../config/RuleConfig';
+import {RuleFactory} from './RuleFactory';
 
 /**
  * A rule whose result depends on the result of a list of sub-rules.
@@ -37,7 +37,7 @@ export class CompositeRule implements Rule {
       0
     );
 
-    const result: EvaluationResult = { valid: true };
+    const result: EvaluationResult = {valid: true};
 
     if (this.config.algorithm === 'any') {
       result.valid = validCount > 0;

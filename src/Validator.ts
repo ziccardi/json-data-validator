@@ -1,9 +1,9 @@
-import { RuleSetFactory } from './RuleSetFactory';
-import { RuleSet } from './RuleSet';
-import { Data } from './Data';
-import { RuleSetConfig } from './config/RuleSetConfig';
-import { EvaluationResult } from './Rule';
-import { ValidatorConfig } from './config/ValidatorConfig';
+import {RuleSetFactory} from './RuleSetFactory';
+import {RuleSet} from './RuleSet';
+import {Data} from './Data';
+import {RuleSetConfig} from './config/RuleSetConfig';
+import {EvaluationResult} from './Rule';
+import {ValidatorConfig} from './config/ValidatorConfig';
 
 export class Validator {
   private readonly ruleSets: RuleSet[];
@@ -15,7 +15,7 @@ export class Validator {
   }
 
   validate(data: Data, multi = false): EvaluationResult {
-    const result: EvaluationResult = { valid: true, details: [] };
+    const result: EvaluationResult = {valid: true, details: []};
 
     for (let i = 0; i < this.ruleSets.length; i++) {
       const ruleSet = this.ruleSets[i];

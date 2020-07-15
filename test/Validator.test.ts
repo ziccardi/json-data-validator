@@ -1,8 +1,8 @@
-import { Validator, ValidatorConfig } from '../src';
-import { NAME as FIELD_VALUE_CONSTRAINT } from '../src/constraints/FieldValueConstraint';
-import { NAME as REQUIRED_RULE } from '../src/rules/RequiredRule';
-import { NAME as MAXLENGTH_RULE } from '../src/rules/MaxLengthRule';
-import { Data } from '../src';
+import {Validator, ValidatorConfig} from '../src';
+import {NAME as FIELD_VALUE_CONSTRAINT} from '../src/constraints/FieldValueConstraint';
+import {NAME as REQUIRED_RULE} from '../src/rules/RequiredRule';
+import {NAME as MAXLENGTH_RULE} from '../src/rules/MaxLengthRule';
+import {Data} from '../src';
 
 const configuration: ValidatorConfig = {
   ruleSets: [
@@ -91,7 +91,7 @@ describe('Validator', () => {
     };
 
     const validator: Validator = new Validator(configuration);
-    expect(validator.validate(data)).toEqual({ valid: true });
+    expect(validator.validate(data)).toEqual({valid: true});
   });
 
   it('Should fail with length 7 - Key: test2', () => {

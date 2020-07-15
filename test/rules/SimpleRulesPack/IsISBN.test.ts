@@ -1,5 +1,5 @@
-import { RuleFactory } from '../../../src/rules/RuleFactory';
-import { test } from '../../utils';
+import {RuleFactory} from '../../../src/rules/RuleFactory';
+import {test} from '../../utils';
 
 describe('isISBN', () => {
   const rule = RuleFactory.create({

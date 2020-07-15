@@ -1,5 +1,5 @@
-import { RuleFactory } from '../../../src/rules/RuleFactory';
-import { test } from '../../utils';
+import {RuleFactory} from '../../../src/rules/RuleFactory';
+import {test} from '../../utils';
 
 describe('isISO8601', () => {
   const rule = RuleFactory.create({

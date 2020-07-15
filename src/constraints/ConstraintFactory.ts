@@ -1,4 +1,4 @@
-import { ConstraintInterface } from './ConstraintInterface';
+import {ConstraintInterface} from './ConstraintInterface';
 import {
   NAME as FIELD_VALUE_CONSTRAINT,
   FieldValueConstraint,
@@ -9,7 +9,7 @@ import {
   CompositeConstraint,
 } from './CompositeConstraint';
 
-import { ConstraintConfig } from '../config/ConstraintConfig';
+import {ConstraintConfig} from '../config/ConstraintConfig';
 
 interface ConstraintDictionary {
   [key: string]: (config: ConstraintConfig) => ConstraintInterface;
@@ -34,7 +34,7 @@ export class ConstraintFactory {
     if (ConstraintFactory.constraints[config.type as string]) {
       return ConstraintFactory.constraints[config.type as string](config);
     }
-    throw { message: `Unknown constraint type ${config.type}` };
+    throw {message: `Unknown constraint type ${config.type}`};
   }
 
   /**

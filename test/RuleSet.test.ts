@@ -1,10 +1,10 @@
-import { RuleSetFactory } from '../src/RuleSetFactory';
-import { NAME as FIELD_VALUE_CONSTRAINT } from '../src/constraints/FieldValueConstraint';
-import { NAME as REQUIRED_RULE } from '../src/rules/RequiredRule';
-import { NAME as MAXLENGTH_RULE } from '../src/rules/MaxLengthRule';
-import { Data } from '../src';
-import { RuleSet } from '../src/RuleSet';
-import { RuleSetConfig } from '../src/config/RuleSetConfig';
+import {RuleSetFactory} from '../src/RuleSetFactory';
+import {NAME as FIELD_VALUE_CONSTRAINT} from '../src/constraints/FieldValueConstraint';
+import {NAME as REQUIRED_RULE} from '../src/rules/RequiredRule';
+import {NAME as MAXLENGTH_RULE} from '../src/rules/MaxLengthRule';
+import {Data} from '../src';
+import {RuleSet} from '../src/RuleSet';
+import {RuleSetConfig} from '../src/config/RuleSetConfig';
 
 const rulesetConfig: RuleSetConfig = {
   constraints: [
@@ -41,7 +41,7 @@ describe('RuleSet', () => {
     const rs: RuleSet = RuleSetFactory.create(rulesetConfig);
 
     expect(rs.shouldEvaluate(data)).toBe(true);
-    expect(rs.evaluate('key1.key11.key22', data)).toEqual({ valid: true });
+    expect(rs.evaluate('key1.key11.key22', data)).toEqual({valid: true});
   });
 
   it('Should not evaluate', () => {

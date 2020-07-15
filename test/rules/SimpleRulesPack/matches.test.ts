@@ -1,5 +1,5 @@
-import { RuleFactory } from '../../../src/rules/RuleFactory';
-import { test } from '../../utils';
+import {RuleFactory} from '../../../src/rules/RuleFactory';
+import {test} from '../../utils';
 
 describe('matches', () => {
   it('Should evaluate if the configured pattern matches the passed in string', () => {

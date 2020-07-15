@@ -1,8 +1,8 @@
-import { ConstraintConfig } from './config/ConstraintConfig';
-import { RuleConfig } from './config/RuleConfig';
-import { RuleSetConfig } from './config/RuleSetConfig';
-import { RuleBuilder } from './rules/RuleBuilder';
-import { Validator } from './Validator';
+import {ConstraintConfig} from './config/ConstraintConfig';
+import {RuleConfig} from './config/RuleConfig';
+import {RuleSetConfig} from './config/RuleSetConfig';
+import {RuleBuilder} from './rules/RuleBuilder';
+import {Validator} from './Validator';
 
 export const validatorBuilder = () => {
   const ruleSets: RuleSetConfig[] = [];
@@ -10,7 +10,7 @@ export const validatorBuilder = () => {
 
   const withField = (fieldName: string) => {
     currentRule!.fields[fieldName] = [];
-    return fieldConfig(currentRule!.fields[fieldName], ruleConfig);
+    return fieldConfig(currentRule!.fields[fieldName]);
   };
 
   const withFieldValueConstraint = (
@@ -34,10 +34,7 @@ export const validatorBuilder = () => {
     return ruleConfig;
   };
 
-  const fieldConfig = (
-    rules: RuleConfig[],
-    ruleConfig: { [key: string]: unknown }
-  ) => {
+  const fieldConfig = (rules: RuleConfig[]) => {
     const ruleConfigurator = {
       withConstraint,
       withFieldValueConstraint,
@@ -48,7 +45,7 @@ export const validatorBuilder = () => {
         return ruleConfigurator;
       },
       build: () => {
-        return new Validator({ ruleSets });
+        return new Validator({ruleSets});
       },
     };
     return ruleConfigurator;
@@ -61,7 +58,7 @@ export const validatorBuilder = () => {
   };
 
   const newRule = () => {
-    currentRule = { fields: {} };
+    currentRule = {fields: {}};
     ruleSets.push(currentRule);
     return ruleConfig;
   };
@@ -175,29 +172,34 @@ export const validatorBuilder = () => {
 // console.log('DATA: ', data);
 // console.log('VALIDATION: ', validator.validate(data));
 
-const validator:Validator = validatorBuilder()
-    .newRule()
-    .withField('keyId')
-    .validate(RuleBuilder.required())
-    .validate(RuleBuilder.length.withLength(10))
-    .withField('teamId')
-    .validate(RuleBuilder.required())
-    .validate(RuleBuilder.length.withLength(10))
-    .build();
+const validator: Validator = validatorBuilder()
+  .newRule()
+  .withField('keyId')
+  .validate(RuleBuilder.required())
+  .validate(RuleBuilder.length.withLength(10))
+  .withField('teamId')
+  .validate(RuleBuilder.required())
+  .validate(RuleBuilder.length.withLength(10))
+  .build();
 
 console.log('============1===========');
-console.log(validator.validate({
-  keyId: '1234567890',
-  teamId: '1234567890'
-}));
+console.log(
+  validator.validate({
+    keyId: '1234567890',
+    teamId: '1234567890',
+  })
+);
 console.log('=============2==========');
-console.log(validator.validate({
-  keyId: '123456789',
-  teamId: '1234567890'
-}));
+console.log(
+  validator.validate({
+    keyId: '123456789',
+    teamId: '1234567890',
+  })
+);
 console.log('=============3==========');
-console.log(validator.validate({
-  keyId: '1234567890',
-  teamId: '123456789'
-}));
-
+console.log(
+  validator.validate({
+    keyId: '1234567890',
+    teamId: '123456789',
+  })
+);

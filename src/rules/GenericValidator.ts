@@ -1,7 +1,7 @@
-import { EvaluationResult, Rule } from '../Rule';
-import { get } from 'lodash';
-import { Data } from '../Data';
-import { RuleConfig } from '../config/RuleConfig';
+import {EvaluationResult, Rule} from '../Rule';
+import {get} from 'lodash';
+import {Data} from '../Data';
+import {RuleConfig} from '../config/RuleConfig';
 import * as util from 'util';
 
 /**
@@ -43,7 +43,7 @@ export class GenericValidator implements Rule {
       };
     }
 
-    return { valid: true };
+    return {valid: true};
   }
 
   type = () => this.config.type;

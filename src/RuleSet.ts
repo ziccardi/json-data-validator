@@ -1,7 +1,7 @@
-import { Rule, EvaluationResult } from './Rule';
-import { Data } from './Data';
-import { ConstraintInterface } from './constraints/ConstraintInterface';
-import { FieldList } from './FieldList';
+import {Rule, EvaluationResult} from './Rule';
+import {Data} from './Data';
+import {ConstraintInterface} from './constraints/ConstraintInterface';
+import {FieldList} from './FieldList';
 
 export class RuleSet implements Rule {
   private constraints: ConstraintInterface[] = [];
@@ -29,11 +29,11 @@ export class RuleSet implements Rule {
       }
     }
 
-    return { valid: true };
+    return {valid: true};
   }
 
   evaluate(path: string, data: Data, multi = false): EvaluationResult {
-    const ret: EvaluationResult = { valid: true };
+    const ret: EvaluationResult = {valid: true};
 
     const fieldList = Object.keys(this.fields);
 

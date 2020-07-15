@@ -1,5 +1,5 @@
-import { Data } from '../../src';
-import { Validator, ValidatorConfig } from '../../src';
+import {Data} from '../../src';
+import {Validator, ValidatorConfig} from '../../src';
 
 const validatorConfig: ValidatorConfig = {
   ruleSets: [

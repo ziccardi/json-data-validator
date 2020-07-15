@@ -1,5 +1,5 @@
-import { RuleConfig } from '../config/RuleConfig';
-import { GenericValidator } from './GenericValidator';
+import {RuleConfig} from '../config/RuleConfig';
+import {GenericValidator} from './GenericValidator';
 
 export const rule = (config: RuleConfig) =>
   new GenericValidator(

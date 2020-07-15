@@ -1,6 +1,6 @@
-import { ConstraintInterface } from './ConstraintInterface';
-import { Data } from '../Data';
-import { ConstraintConfig } from '../config/ConstraintConfig';
+import {ConstraintInterface} from './ConstraintInterface';
+import {Data} from '../Data';
+import {ConstraintConfig} from '../config/ConstraintConfig';
 
 /**
  * Base class for ruleset constraints.
@@ -15,4 +15,4 @@ export abstract class AbstractConstraint implements ConstraintInterface {
   abstract isRespected(data: Data): boolean;
 }
 
-export { ConstraintConfig };
+export {ConstraintConfig};

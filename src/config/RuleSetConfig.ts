@@ -1,5 +1,5 @@
-import { ConstraintConfig } from './ConstraintConfig';
-import { RuleConfig } from './RuleConfig';
+import {ConstraintConfig} from './ConstraintConfig';
+import {RuleConfig} from './RuleConfig';
 
 /**
  * Interface definition for rule sets.
