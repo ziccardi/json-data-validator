@@ -1,5 +1,6 @@
 import * as LengthRule from '../LengthRule';
+import {RuleConfig} from '../../config/RuleConfig';
 
 export const builder = {
-  withLength: (length: number) => ({type: LengthRule.NAME, length}),
+  withLength: (length: number): RuleConfig => ({type: LengthRule.NAME, length}),
 };
