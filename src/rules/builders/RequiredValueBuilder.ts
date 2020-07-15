@@ -1,5 +1,7 @@
+import {RuleConfig} from '../../config/RuleConfig';
+
 export const builder = {
-  required: (path?: string) => ({
+  required: (path?: string): RuleConfig => ({
     type: 'REQUIRED',
     path,
   }),
