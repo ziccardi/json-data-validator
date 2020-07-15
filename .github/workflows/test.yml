@@ -11,13 +11,20 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
 
-    - name: Installing deps
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+
+    - name: Installing dependencies
       run: npm install
 
-    - name: Checking Style
+    - name: Check code style
       run: npm run check
+
+    - name: Build
+      run: npm run compile
 
     - name: Running tests
       run: npm run test

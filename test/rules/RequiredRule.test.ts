@@ -2,11 +2,6 @@ import {Data} from '../../src';
 import {RuleConfig} from '../../src/config/RuleConfig';
 import {RuleFactory} from '../../src/rules/RuleFactory';
 
-const config: RuleConfig = {
-  type: 'REQUIRED',
-  maxlength: 10,
-};
-
 const data: Data = {
   empty: '',
   text: '1234',
