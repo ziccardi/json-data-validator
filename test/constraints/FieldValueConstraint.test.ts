@@ -2,8 +2,8 @@ import {
   FieldValueConstraint,
   NAME,
 } from '../../src/constraints/FieldValueConstraint';
-import { Data } from '../../src';
-import { ConstraintConfig } from '../../src/config/ConstraintConfig';
+import {Data} from '../../src';
+import {ConstraintConfig} from '../../src/config/ConstraintConfig';
 
 const data: Data = {
   variant: 'android',

@@ -1,4 +1,4 @@
-import { RuleConfig } from '../../config/RuleConfig';
+import {RuleConfig} from '../../config/RuleConfig';
 
 export const builder = {
   any: () => {
@@ -6,7 +6,7 @@ export const builder = {
 
     const withSubRule = (rule: RuleConfig) => {
       subRules.push(rule);
-      return { withSubRule, build };
+      return {withSubRule, build};
     };
 
     const build = () => ({
@@ -15,14 +15,14 @@ export const builder = {
       subRules,
     });
 
-    return { withSubRule };
+    return {withSubRule};
   },
   all: () => {
     const subRules: RuleConfig[] = [];
 
     const withSubRule = (rule: RuleConfig) => {
       subRules.push(rule);
-      return { withSubRule, build };
+      return {withSubRule, build};
     };
 
     const build = () => ({
@@ -31,6 +31,6 @@ export const builder = {
       subRules,
     });
 
-    return { withSubRule };
+    return {withSubRule};
   },
 };

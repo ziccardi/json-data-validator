@@ -2,9 +2,9 @@ import {
   CompositeConstraint,
   NAME as COMPOSITE_CONSTRAINT,
 } from '../../src/constraints/CompositeConstraint';
-import { Data } from '../../src';
-import { ConstraintConfig } from '../../src/config/ConstraintConfig';
-import { NAME as FIELD_VALUE } from '../../src/constraints/FieldValueConstraint';
+import {Data} from '../../src';
+import {ConstraintConfig} from '../../src/config/ConstraintConfig';
+import {NAME as FIELD_VALUE} from '../../src/constraints/FieldValueConstraint';
 
 const data: Data = {
   variant: 'android',

@@ -1,4 +1,4 @@
-import { RuleSetConfig } from './RuleSetConfig';
+import {RuleSetConfig} from './RuleSetConfig';
 
 /**
  * Interface for the validator.

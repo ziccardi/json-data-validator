@@ -1,6 +1,6 @@
-import { Data } from '../../../src';
-import { RuleConfig } from '../../../src/config/RuleConfig';
-import { RuleFactory } from '../../../src/rules/RuleFactory';
+import {Data} from '../../../src';
+import {RuleConfig} from '../../../src/config/RuleConfig';
+import {RuleFactory} from '../../../src/rules/RuleFactory';
 
 const data: Data = {
   uuid1: 'c90734df-71f5-435a-9380-0dc05984c988',

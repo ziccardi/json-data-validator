@@ -1,12 +1,11 @@
-const validator = require('validator');
-
+import validator from 'validator';
 /**
  * {
  *   type: 'VALID_URL_PATH',
  * }
  */
-import { GenericValidator } from './GenericValidator';
-import { RuleConfig } from '../config/RuleConfig';
+import {GenericValidator} from './GenericValidator';
+import {RuleConfig} from '../config/RuleConfig';
 
 export const rule = (config: RuleConfig) =>
   new GenericValidator(

@@ -1,6 +1,6 @@
-import { Data } from '../../src';
-import { RuleConfig } from '../../src/config/RuleConfig';
-import { RuleFactory } from '../../src/rules/RuleFactory';
+import {Data} from '../../src';
+import {RuleConfig} from '../../src/config/RuleConfig';
+import {RuleFactory} from '../../src/rules/RuleFactory';
 
 const config: RuleConfig = {
   type: 'MAXLENGTH',

@@ -1,5 +1,5 @@
-import { RuleConfig } from '../config/RuleConfig';
-import { GenericValidator } from './GenericValidator';
+import {RuleConfig} from '../config/RuleConfig';
+import {GenericValidator} from './GenericValidator';
 
 /**
  * Checks that the value retrieved at the specific path is exactly the specified value.

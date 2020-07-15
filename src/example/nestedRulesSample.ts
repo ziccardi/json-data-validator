@@ -1,5 +1,5 @@
-import { Validator } from '../Validator';
-import { ValidatorConfig } from '..';
+import {Validator} from '../Validator';
+import {ValidatorConfig} from '..';
 
 let data = {
   platform: '', // can be MOBILE or DESKTOP
@@ -158,25 +158,25 @@ console.log('========================================');
 console.log('DATA: ', data);
 console.log('VALIDATION: ', validator.validate(data));
 
-data = { ...data, platform: 'DESKTOP', os: 'LINUX', programming_lang: 'Basic' }; // INVALID: programming_lang must be Java or C/C++
+data = {...data, platform: 'DESKTOP', os: 'LINUX', programming_lang: 'Basic'}; // INVALID: programming_lang must be Java or C/C++
 
 console.log('========================================');
 console.log('DATA: ', data);
 console.log('VALIDATION: ', validator.validate(data));
 
-data = { ...data, platform: 'DESKTOP', os: 'MACOS', programming_lang: 'Basic' }; // INVALID: os must be WINDOWS or LINUX
+data = {...data, platform: 'DESKTOP', os: 'MACOS', programming_lang: 'Basic'}; // INVALID: os must be WINDOWS or LINUX
 
 console.log('========================================');
 console.log('DATA: ', data);
 console.log('VALIDATION: ', validator.validate(data));
 
-data = { ...data, platform: 'MOBILE', os: 'iOS', programming_lang: 'Java' }; // INVALID programming_lang must be SWIFT or OBJECTIVE-C
+data = {...data, platform: 'MOBILE', os: 'iOS', programming_lang: 'Java'}; // INVALID programming_lang must be SWIFT or OBJECTIVE-C
 
 console.log('========================================');
 console.log('DATA: ', data);
 console.log('VALIDATION: ', validator.validate(data));
 
-data = { ...data, platform: 'MOBILE', os: 'ANDROID', programming_lang: 'Java' }; // VALID
+data = {...data, platform: 'MOBILE', os: 'ANDROID', programming_lang: 'Java'}; // VALID
 
 console.log('========================================');
 console.log('DATA: ', data);

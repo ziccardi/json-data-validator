@@ -1,6 +1,6 @@
-import { AbstractConstraint, ConstraintConfig } from './AbstractConstraint';
-import { Data } from '../Data';
-import { ConstraintFactory } from './ConstraintFactory';
+import {AbstractConstraint, ConstraintConfig} from './AbstractConstraint';
+import {Data} from '../Data';
+import {ConstraintFactory} from './ConstraintFactory';
 
 /**
  * This constraint evaluates a set of sub-constraints.

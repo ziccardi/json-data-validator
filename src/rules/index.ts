@@ -3,8 +3,9 @@ import * as MaxLengthRule from './MaxLengthRule';
 import * as RequiredRule from './RequiredRule';
 import * as ValidUrlPathRule from './ValidUrlPathRule';
 import * as ValidUrlRule from './ValidUrlRule';
-import { CompositeRule } from './CompositeRule';
-import { RuleConfig } from '../config/RuleConfig';
+import * as LengthRule from './LengthRule';
+import {CompositeRule} from './CompositeRule';
+import {RuleConfig} from '../config/RuleConfig';
 
 export const RULE_DICTIONARY = {
   [CompositeRule.NAME]: (config: RuleConfig) => new CompositeRule(config),
@@ -13,4 +14,5 @@ export const RULE_DICTIONARY = {
   [RequiredRule.NAME]: RequiredRule.rule,
   [ValidUrlPathRule.NAME]: ValidUrlPathRule.rule,
   [ValidUrlRule.NAME]: ValidUrlRule.rule,
+  [LengthRule.NAME]: LengthRule.rule,
 };
