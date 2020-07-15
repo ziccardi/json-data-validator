@@ -1,3 +1,3 @@
 export const builder = {
-  withPattern: (pattern: string | RegExp) => ({type: 'matches', pattern}),
+  withPattern: (pattern: string) => ({type: 'matches', pattern}),
 };
