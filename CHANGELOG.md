@@ -1,3 +1,12 @@
+## [0.6.3](https://github.com/ziccardi/json-data-validator/compare/0.6.2...0.6.3) (2020-07-15)
+
+
+### Bug Fixes
+
+* added exports to the index file ([5ffb2ee](https://github.com/ziccardi/json-data-validator/commit/5ffb2eefe33dc82ed85e39f9f309be282c0ff45e))
+
+
+
 ## [0.6.2](https://github.com/ziccardi/json-data-validator/compare/0.6.1...0.6.2) (2020-07-15)
 
 
