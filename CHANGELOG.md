@@ -1,3 +1,18 @@
+# [2.0.0](https://github.com/ziccardi/json-data-validator/compare/1.0.0...2.0.0) (2020-07-21)
+
+
+### Bug Fixes
+
+* **builder:** fixed fluent api for the required rule builder ([37833c2](https://github.com/ziccardi/json-data-validator/commit/37833c2278673ee1cb015bb00c2c5e6a088be53b))
+
+
+### BREAKING CHANGES
+
+* **builder:** Now the required rule builder requires the build method
+to be called
+
+
+
 # [1.0.0](https://github.com/ziccardi/json-data-validator/compare/0.6.3...1.0.0) (2020-07-21)
 
 
@@ -38,15 +53,6 @@ be called
 ### Bug Fixes
 
 * **deps:** update dependency yarn to v1.22.0 [security] ([0b4dadb](https://github.com/ziccardi/json-data-validator/commit/0b4dadb18dcc170df49eb33f71b7e1727b298b6d))
-
-
-
-# [0.6.0](https://github.com/ziccardi/json-data-validator/compare/0.5.2...0.6.0) (2020-07-15)
-
-
-### Features
-
-* added builder for LengthRule and MatchesRule ([60e3ddb](https://github.com/ziccardi/json-data-validator/commit/60e3ddb0bd5a54b4f080d424003901d04374f639))
 
 
 
