@@ -91,7 +91,7 @@ describe('Validator', () => {
     };
 
     const validator: Validator = new Validator(configuration);
-    expect(validator.validate(data)).toEqual({valid: true});
+    expect(validator.validate(data)).toMatchObject({valid: true});
   });
 
   it('Should fail with length 7 - Key: test2', () => {
@@ -130,7 +130,7 @@ describe('Validator - MULTI', () => {
 
     const res = validator.validate(data, true);
     expect(res.details!.length).toEqual(3);
-    expect(res).toEqual({
+    expect(res).toMatchObject({
       details: [
         {
           field: 'key1.key11.key22',
@@ -168,7 +168,7 @@ describe('Validator - MULTI', () => {
 
     const res = validator.validate(data, true);
     expect(res.details!.length).toEqual(2);
-    expect(res).toEqual({
+    expect(res).toMatchObject({
       details: [
         {
           field: 'key2',
