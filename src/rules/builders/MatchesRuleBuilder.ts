@@ -1,5 +1,9 @@
 import {RuleConfig} from '../../config/RuleConfig';
 
 export const builder = {
-  withPattern: (pattern: string): RuleConfig => ({type: 'matches', pattern}),
+  withPattern: (pattern: string, errorMessage?: string): RuleConfig => ({
+    type: 'matches',
+    pattern,
+    errorMessage,
+  }),
 };

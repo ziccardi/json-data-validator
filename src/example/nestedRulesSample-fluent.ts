@@ -15,12 +15,12 @@ let data = {
 const validator = validatorBuilder()
   .newRule()
   .withField('platform')
-  .validate(RuleBuilder.isIn.withValues('MOBILE', 'DESKTOP'))
+  .validate(RuleBuilder.isIn.withValues('MOBILE', 'DESKTOP').build())
   .validate(RuleBuilder.required())
   .newRule()
   .withFieldValueConstraint('platform', 'mobile')
   .withField('os')
-  .validate(RuleBuilder.isIn.withValues('ANDROID', 'iOS', 'WINDOWS'))
+  .validate(RuleBuilder.isIn.withValues('ANDROID', 'iOS', 'WINDOWS').build())
   .validate(RuleBuilder.required())
   .withField('programming_lang')
   .validate(
@@ -30,21 +30,23 @@ const validator = validatorBuilder()
         RuleBuilder.composite
           .all()
           .withSubRule(RuleBuilder.exactValue.withPathAndValue('os', 'ANDROID'))
-          .withSubRule(RuleBuilder.isIn.withValues('JAVA', 'KOTLIN'))
+          .withSubRule(RuleBuilder.isIn.withValues('JAVA', 'KOTLIN').build())
           .build()
       )
       .withSubRule(
         RuleBuilder.composite
           .all()
           .withSubRule(RuleBuilder.exactValue.withPathAndValue('os', 'iOS'))
-          .withSubRule(RuleBuilder.isIn.withValues('SWIFT', 'OBJECTIVE-C'))
+          .withSubRule(
+            RuleBuilder.isIn.withValues('SWIFT', 'OBJECTIVE-C').build()
+          )
           .build()
       )
       .withSubRule(
         RuleBuilder.composite
           .all()
           .withSubRule(RuleBuilder.exactValue.withPathAndValue('os', 'WINDOWS'))
-          .withSubRule(RuleBuilder.isIn.withValues('C#'))
+          .withSubRule(RuleBuilder.isIn.withValues('C#').build())
           .build()
       )
       .build()
@@ -52,7 +54,7 @@ const validator = validatorBuilder()
   .newRule()
   .withFieldValueConstraint('platform', 'DESKTOP')
   .withField('os')
-  .validate(RuleBuilder.isIn.withValues('WINDOWS', 'LINUX'))
+  .validate(RuleBuilder.isIn.withValues('WINDOWS', 'LINUX').build())
   .withField('programming_lang')
   .validate(
     RuleBuilder.composite
@@ -61,14 +63,16 @@ const validator = validatorBuilder()
         RuleBuilder.composite
           .all()
           .withSubRule(RuleBuilder.exactValue.withPathAndValue('os', 'WINDOWS'))
-          .withSubRule(RuleBuilder.isIn.withValues('JAVA', 'C/C++', 'C#'))
+          .withSubRule(
+            RuleBuilder.isIn.withValues('JAVA', 'C/C++', 'C#').build()
+          )
           .build()
       )
       .withSubRule(
         RuleBuilder.composite
           .all()
           .withSubRule(RuleBuilder.exactValue.withPathAndValue('os', 'LINUX'))
-          .withSubRule(RuleBuilder.isIn.withValues('JAVA', 'C/C++'))
+          .withSubRule(RuleBuilder.isIn.withValues('JAVA', 'C/C++').build())
           .build()
       )
       .build()
