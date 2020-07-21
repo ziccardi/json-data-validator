@@ -39,9 +39,13 @@ const createWithErrorMessage = (
 const createBuild = (rule: RuleConfig): (() => RuleConfig) => () => rule;
 
 export const builder = {
-  required: {
-    withPath: createWithPath({type: 'REQUIRED'}),
-    withErrorMessage: createWithErrorMessage({type: 'REQUIRED'}),
-    build: createBuild({type: 'REQUIRED'}),
+  required: () => {
+    const rule: RuleConfig = {type: 'REQUIRED'};
+
+    return {
+      withPath: createWithPath(rule),
+      withErrorMessage: createWithErrorMessage(rule),
+      build: createBuild(rule),
+    };
   },
 };
