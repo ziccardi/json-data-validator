@@ -49,7 +49,7 @@ describe('ExactValueRule', () => {
       result: 11,
     };
 
-    expect(new Validator(validatorConfig).validate(data)).toEqual({
+    expect(new Validator(validatorConfig).validate(data)).toMatchObject({
       valid: true,
     });
   });
@@ -77,7 +77,7 @@ describe('ExactValueRule', () => {
       result: 30,
     };
 
-    expect(new Validator(validatorConfig).validate(data)).toEqual({
+    expect(new Validator(validatorConfig).validate(data)).toMatchObject({
       valid: true,
     });
   });

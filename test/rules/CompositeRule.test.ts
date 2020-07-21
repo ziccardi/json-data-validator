@@ -69,7 +69,7 @@ describe('CompositeRule', () => {
       result: 11,
     };
 
-    expect(new Validator(validatorConfig).validate(data)).toEqual({
+    expect(new Validator(validatorConfig).validate(data)).toMatchObject({
       valid: true,
     });
   });
@@ -82,7 +82,7 @@ describe('CompositeRule', () => {
       result: 30,
     };
 
-    expect(new Validator(validatorConfig).validate(data)).toEqual({
+    expect(new Validator(validatorConfig).validate(data)).toMatchObject({
       valid: true,
     });
   });

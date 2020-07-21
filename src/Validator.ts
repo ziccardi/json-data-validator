@@ -2,7 +2,7 @@ import {RuleSetFactory} from './RuleSetFactory';
 import {RuleSet} from './RuleSet';
 import {Data} from './Data';
 import {RuleSetConfig} from './config/RuleSetConfig';
-import {EvaluationResult} from './Rule';
+import {EvaluationResult, MultiEvaluationResult} from './Rule';
 import {ValidatorConfig} from './config/ValidatorConfig';
 
 export class Validator {
@@ -14,8 +14,20 @@ export class Validator {
     });
   }
 
-  validate(data: Data, multi = false): EvaluationResult {
-    const result: EvaluationResult = {valid: true, details: []};
+  validate(
+    data: Data,
+    multi = false
+  ): EvaluationResult | MultiEvaluationResult {
+    const result: MultiEvaluationResult = {
+      valid: true,
+      details: [],
+      isValid: (path: string) => {
+        const evRes = result.details.find(res => res.field === path);
+        return !evRes || evRes.valid;
+      },
+      getEvaluationResult: (path: string) =>
+        result.details.find(res => res.field === path),
+    };
 
     for (let i = 0; i < this.ruleSets.length; i++) {
       const ruleSet = this.ruleSets[i];
