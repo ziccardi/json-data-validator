@@ -1,3 +1,12 @@
+## [2.0.1](https://github.com/ziccardi/json-data-validator/compare/2.0.0...2.0.1) (2020-07-21)
+
+
+### Bug Fixes
+
+* **builder:** require builder took only the latest config received ([61da456](https://github.com/ziccardi/json-data-validator/commit/61da45603f4a0e4acee5fbcc7d3b917f8e1312a6))
+
+
+
 # [2.0.0](https://github.com/ziccardi/json-data-validator/compare/1.0.0...2.0.0) (2020-07-21)
 
 
@@ -44,15 +53,6 @@ be called
 
 * added missing return types ([318a3d4](https://github.com/ziccardi/json-data-validator/commit/318a3d48d7a05b35bb4ccd72fbc41f7ed1cd2e85))
 * matches builder must accept only a string ([9640bca](https://github.com/ziccardi/json-data-validator/commit/9640bca8e3cbef7198dc824001ab7d0a96809083))
-
-
-
-## [0.6.1](https://github.com/ziccardi/json-data-validator/compare/0.6.0...0.6.1) (2020-07-15)
-
-
-### Bug Fixes
-
-* **deps:** update dependency yarn to v1.22.0 [security] ([0b4dadb](https://github.com/ziccardi/json-data-validator/commit/0b4dadb18dcc170df49eb33f71b7e1727b298b6d))
 
 
 
