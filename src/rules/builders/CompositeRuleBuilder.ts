@@ -20,9 +20,10 @@ export const builder = {
       return {withSubRule, build};
     };
 
-    const build = (): RuleConfig => ({
+    const build = (errorMessage?: string): RuleConfig => ({
       type: 'COMPOSITE',
       algorithm: 'any',
+      errorMessage,
       subRules,
     });
 
@@ -38,9 +39,10 @@ export const builder = {
       return {withSubRule, build};
     };
 
-    const build = (): RuleConfig => ({
+    const build = (errorMessage?: string): RuleConfig => ({
       type: 'COMPOSITE',
       algorithm: 'all',
+      errorMessage,
       subRules,
     });
 
