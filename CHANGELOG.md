@@ -1,3 +1,18 @@
+# [1.0.0](https://github.com/ziccardi/json-data-validator/compare/0.6.3...1.0.0) (2020-07-21)
+
+
+### Bug Fixes
+
+* **builder:** added ability to specify a custom error message ([52a34bb](https://github.com/ziccardi/json-data-validator/commit/52a34bb05b30d203180f52c168730c1c38b1666c))
+
+
+### BREAKING CHANGES
+
+* **builder:** Now the isIn rule builder requires the build method to
+be called
+
+
+
 ## [0.6.3](https://github.com/ziccardi/json-data-validator/compare/0.6.2...0.6.3) (2020-07-15)
 
 
