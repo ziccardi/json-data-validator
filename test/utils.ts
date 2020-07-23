@@ -1,5 +1,5 @@
 import {Rule} from '../src/Rule';
-import {Data} from '../src';
+import {Data, Validator} from '../src';
 import {set} from 'lodash';
 
 interface TestData {
@@ -29,6 +29,36 @@ export function test(rule: Rule, {path, valid, invalid}: TestData) {
     if (res.valid) {
       throw Error(
         `${rule.type()} passed but should have failed (value: '${value}')`
+      );
+    }
+  });
+}
+
+interface ValidatorTestData {
+  valid: Data[];
+  invalid: Data[];
+}
+
+export function testValidator(
+  validator: Validator,
+  {valid, invalid}: ValidatorTestData
+) {
+  valid.forEach(value => {
+    const res = validator.validate(value);
+    if (!res.valid) {
+      throw Error(
+        `Failed but should have passed: ${
+          res.message
+        } (value: '${JSON.stringify(value)}')`
+      );
+    }
+  });
+
+  invalid.forEach((value: Data) => {
+    const res = validator.validate(value);
+    if (res.valid) {
+      throw Error(
+        `Passed but should have failed (value: '${JSON.stringify(value)}')`
       );
     }
   });
