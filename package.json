@@ -30,7 +30,7 @@
     "jest": "26.2.2",
     "ts-jest": "26.1.4",
     "tslint": "6.1.3",
-    "typescript": "3.9.7"
+    "typescript": "4.0.2"
   },
   "dependencies": {
     "@types/is-valid-path": "^0.1.0",
