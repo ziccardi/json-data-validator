@@ -1,7 +1,7 @@
 import validator from 'validator';
 /**
  * {
- *   type: 'VALID_URL_PATH',
+ *   type: 'VALID_URL',
  * }
  */
 import {GenericValidator} from './GenericValidator';
