@@ -4,8 +4,8 @@ import {set} from 'lodash';
 
 interface TestData {
   path: string;
-  valid: string[] | [undefined];
-  invalid: string[] | [undefined];
+  valid: string[] | undefined[];
+  invalid: string[] | undefined[];
 }
 
 export function test(rule: Rule, {path, valid, invalid}: TestData) {

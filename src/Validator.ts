@@ -46,7 +46,7 @@ export class Validator {
     }
 
     if (!multi) {
-      delete result.details;
+      delete (result as EvaluationResult).details;
     }
     return result;
   }
