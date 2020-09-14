@@ -5,6 +5,7 @@ import {builder as RequiredRuleBuilder} from './builders/RequiredValueBuilder';
 import {builder as LengthRuleBuilder} from './builders/LengthRuleBuilder';
 import {builder as MatchesRuleBuilder} from './builders/MatchesRuleBuilder';
 import {builder as IsBase64Builder} from './builders/IsBase64Builder';
+import {builder as IsValidUrlBuilder} from './builders/IsValidUrlBuilder';
 
 // tslint:disable-next-line:variable-name
 export const RuleBuilder = {
@@ -15,4 +16,5 @@ export const RuleBuilder = {
   length: LengthRuleBuilder,
   matches: MatchesRuleBuilder.withPattern,
   isBase64: IsBase64Builder,
+  isValidUrl: IsValidUrlBuilder.isValidUrl,
 };

@@ -6,7 +6,7 @@ export interface CompositeRuleBuilderInterfaceStart {
 
 export interface CompositeRuleBuilderInterfaceEnd {
   withSubRule: (rule: RuleConfig) => CompositeRuleBuilderInterfaceEnd;
-  build: () => RuleConfig;
+  build: (errorMessage?: string) => RuleConfig;
 }
 
 export const builder = {
