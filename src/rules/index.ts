@@ -4,6 +4,7 @@ import * as RequiredRule from './RequiredRule';
 import * as ValidUrlPathRule from './ValidUrlPathRule';
 import * as ValidUrlRule from './ValidUrlRule';
 import * as LengthRule from './LengthRule';
+import * as RequiredByRule from './RequiredByRule';
 import {CompositeRule} from './CompositeRule';
 import {RuleConfig} from '../config/RuleConfig';
 
@@ -15,4 +16,5 @@ export const RULE_DICTIONARY = {
   [ValidUrlPathRule.NAME]: ValidUrlPathRule.rule,
   [ValidUrlRule.NAME]: ValidUrlRule.rule,
   [LengthRule.NAME]: LengthRule.rule,
+  [RequiredByRule.NAME]: RequiredByRule.rule,
 };
