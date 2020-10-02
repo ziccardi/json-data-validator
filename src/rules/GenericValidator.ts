@@ -4,12 +4,22 @@ import {Data} from '../Data';
 import {RuleConfig} from '../config/RuleConfig';
 import * as util from 'util';
 
+type ValidatorFunction = (
+  value: string,
+  config: RuleConfig,
+  data: Data
+) => boolean;
+
 /**
  * A generic validator used to validate simple rules, specified passing a validatorFunction to the constructor.
  */
 export class GenericValidator implements Rule {
   private readonly config: RuleConfig;
-  private readonly validatorFunction: (path: string) => boolean;
+  private readonly validatorFunction: (
+    path: string,
+    config: RuleConfig,
+    data: Data
+  ) => boolean;
   private readonly defaultErrorMessage: string;
   private readonly evaluateEmptyString: boolean;
 
@@ -21,7 +31,7 @@ export class GenericValidator implements Rule {
    */
   constructor(
     config: RuleConfig,
-    validatorFunction: (value: string) => boolean,
+    validatorFunction: ValidatorFunction,
     defaultErrorMessage: string,
     evaluateEmptyString = false
   ) {
@@ -33,7 +43,10 @@ export class GenericValidator implements Rule {
   evaluate(path: string, data: Data): EvaluationResult {
     const value = get(data, (this.config.path as string) || path) as string;
 
-    if ((value || this.evaluateEmptyString) && !this.validatorFunction(value)) {
+    if (
+      (value || this.evaluateEmptyString) &&
+      !this.validatorFunction(value, this.config, data)
+    ) {
       return {
         valid: false,
         field: path,
