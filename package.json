@@ -25,7 +25,7 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@types/jest": "26.0.14",
-    "@types/node": "10.17.32",
+    "@types/node": "10.17.44",
     "@types/is-valid-path": "0.1.0",
     "@types/lodash": "4.14.161",
     "@types/validator": "13.1.0",
