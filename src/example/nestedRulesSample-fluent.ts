@@ -29,14 +29,18 @@ const validator = validatorBuilder()
       .withSubRule(
         RuleBuilder.composite
           .all()
-          .withSubRule(RuleBuilder.exactValue.withPathAndValue('os', 'ANDROID'))
+          .withSubRule(
+            RuleBuilder.exactValue.withPathAndValue('os', 'ANDROID').build()
+          )
           .withSubRule(RuleBuilder.isIn.withValues('JAVA', 'KOTLIN').build())
           .build()
       )
       .withSubRule(
         RuleBuilder.composite
           .all()
-          .withSubRule(RuleBuilder.exactValue.withPathAndValue('os', 'iOS'))
+          .withSubRule(
+            RuleBuilder.exactValue.withPathAndValue('os', 'iOS').build()
+          )
           .withSubRule(
             RuleBuilder.isIn.withValues('SWIFT', 'OBJECTIVE-C').build()
           )
@@ -45,7 +49,9 @@ const validator = validatorBuilder()
       .withSubRule(
         RuleBuilder.composite
           .all()
-          .withSubRule(RuleBuilder.exactValue.withPathAndValue('os', 'WINDOWS'))
+          .withSubRule(
+            RuleBuilder.exactValue.withPathAndValue('os', 'WINDOWS').build()
+          )
           .withSubRule(RuleBuilder.isIn.withValues('C#').build())
           .build()
       )
@@ -62,7 +68,9 @@ const validator = validatorBuilder()
       .withSubRule(
         RuleBuilder.composite
           .all()
-          .withSubRule(RuleBuilder.exactValue.withPathAndValue('os', 'WINDOWS'))
+          .withSubRule(
+            RuleBuilder.exactValue.withPathAndValue('os', 'WINDOWS').build()
+          )
           .withSubRule(
             RuleBuilder.isIn.withValues('JAVA', 'C/C++', 'C#').build()
           )
@@ -71,7 +79,9 @@ const validator = validatorBuilder()
       .withSubRule(
         RuleBuilder.composite
           .all()
-          .withSubRule(RuleBuilder.exactValue.withPathAndValue('os', 'LINUX'))
+          .withSubRule(
+            RuleBuilder.exactValue.withPathAndValue('os', 'LINUX').build()
+          )
           .withSubRule(RuleBuilder.isIn.withValues('JAVA', 'C/C++').build())
           .build()
       )
