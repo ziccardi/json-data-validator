@@ -1,3 +1,21 @@
+# [3.0.0](https://github.com/ziccardi/json-data-validator/compare/2.4.2...3.0.0) (2021-01-07)
+
+
+### Bug Fixes
+
+* 🐛 added build method ([11c9c09](https://github.com/ziccardi/json-data-validator/commit/11c9c09b3eb4656b7ae1afc0d1420b03d3e3916d))
+* 🐛 fixed error message when using path ([cf2bc72](https://github.com/ziccardi/json-data-validator/commit/cf2bc7205e5771641765832e793568f7d8fc399c))
+* 🐛 uniformed the builder interface to the other builders ([67d8f73](https://github.com/ziccardi/json-data-validator/commit/67d8f734755075d868fc94544aaa08ecece43ccb))
+
+
+### BREAKING CHANGES
+
+* 🧨 Now you need to call the `build` method to actually build the rule
+* 🧨 Now even if this builder configures only one property, it is needed to
+call the `build` method to actually build the rule
+
+
+
 ## [2.4.2](https://github.com/ziccardi/json-data-validator/compare/2.4.1...2.4.2) (2021-01-07)
 
 
@@ -32,15 +50,6 @@
 ### Features
 
 * 🎸 added IsValidURL builder ([#45](https://github.com/ziccardi/json-data-validator/issues/45)) ([8c3def9](https://github.com/ziccardi/json-data-validator/commit/8c3def977bee429be46ccc268e207596e71c2093))
-
-
-
-# [2.2.0](https://github.com/ziccardi/json-data-validator/compare/2.1.0...2.2.0) (2020-07-23)
-
-
-### Features
-
-* **builder:** added IsBase64Builder ([05bd51c](https://github.com/ziccardi/json-data-validator/commit/05bd51ce2d4eb1f8979bf38ce9f3d0f876f03b62))
 
 
 
