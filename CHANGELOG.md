@@ -1,3 +1,12 @@
+## [2.4.2](https://github.com/ziccardi/json-data-validator/compare/2.4.1...2.4.2) (2021-01-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency validator to v13.5.2 ([20cd6ff](https://github.com/ziccardi/json-data-validator/commit/20cd6fff2fdc95a10d62bd86328f52a9a1a197d3))
+
+
+
 ## [2.4.1](https://github.com/ziccardi/json-data-validator/compare/2.4.0...2.4.1) (2020-10-05)
 
 
@@ -32,15 +41,6 @@
 ### Features
 
 * **builder:** added IsBase64Builder ([05bd51c](https://github.com/ziccardi/json-data-validator/commit/05bd51ce2d4eb1f8979bf38ce9f3d0f876f03b62))
-
-
-
-# [2.1.0](https://github.com/ziccardi/json-data-validator/compare/2.0.1...2.1.0) (2020-07-21)
-
-
-### Features
-
-* **validator:** added utility functions into the result object ([049776b](https://github.com/ziccardi/json-data-validator/commit/049776bbff502c04fb79c8fb9cfc2f9b3552fb31))
 
 
 
