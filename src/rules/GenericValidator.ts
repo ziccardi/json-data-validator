@@ -52,7 +52,10 @@ export class GenericValidator implements Rule {
         field: path,
         message:
           this.config.errorMessage ||
-          util.format(this.defaultErrorMessage, path),
+          (util.format(
+            this.defaultErrorMessage,
+            (this.config.path as string) || path
+          ) as string),
       };
     }
 
