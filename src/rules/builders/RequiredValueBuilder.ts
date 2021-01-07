@@ -6,46 +6,29 @@ export interface RequiredRuleBuilder {
   build: () => RuleConfig;
 }
 
-const createWithPath = (
-  rule: RuleConfig
-): ((path: string) => RequiredRuleBuilder) => {
-  const withPath = (path: string) => {
-    rule.path = path;
-    return {
-      withPath: createWithPath(rule),
-      withErrorMessage: createWithErrorMessage(rule),
-      build: createBuild(rule),
-    };
+export interface RequiredRuleConfig extends RuleConfig {
+  type: 'REQUIRED';
+  path?: string;
+}
+
+class RequiredRuleBuilderImpl implements RequiredRuleBuilder {
+  private readonly cfg: RequiredRuleConfig = {
+    type: 'REQUIRED',
   };
 
-  return withPath;
-};
-
-const createWithErrorMessage = (
-  rule: RuleConfig
-): ((path: string) => RequiredRuleBuilder) => {
-  const withErrorMessage = (errorMessage: string) => {
-    rule.errorMessage = errorMessage;
-    return {
-      withPath: createWithPath(rule),
-      withErrorMessage: createWithErrorMessage(rule),
-      build: createBuild(rule),
-    };
+  public readonly withPath = (path: string) => {
+    this.cfg.path = path;
+    return this;
   };
-
-  return withErrorMessage;
-};
-
-const createBuild = (rule: RuleConfig): (() => RuleConfig) => () => rule;
+  public readonly withErrorMessage = (errorMessage: string) => {
+    this.cfg.errorMessage = errorMessage;
+    return this;
+  };
+  public readonly build = () => this.cfg;
+}
 
 export const builder = {
   required: () => {
-    const rule: RuleConfig = {type: 'REQUIRED'};
-
-    return {
-      withPath: createWithPath(rule),
-      withErrorMessage: createWithErrorMessage(rule),
-      build: createBuild(rule),
-    };
+    return new RequiredRuleBuilderImpl() as RequiredRuleBuilder;
   },
 };
