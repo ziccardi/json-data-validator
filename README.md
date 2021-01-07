@@ -19,6 +19,21 @@ And we want, to ensure that result is `11` if `op` is `add` and result is `30` i
 
 The configuration for the validator would be:
 
+```typescript
+const validator = validatorBuilder()
+    .newRule()
+    .withFieldValueConstraint('op', 'add')
+    .withField('result')
+    .validate(RuleBuilder.exactValue.withValue(11).build())
+    .newRule()
+    .withFieldValueConstraint('op', 'mul')
+    .withField('result')
+    .validate(RuleBuilder.exactValue.withValue(30).build())
+    .build();
+```
+
+or, if using a json configuration:
+
 ```js
 const validatorConfig = {
   ruleSets: [
@@ -58,38 +73,25 @@ const validatorConfig = {
     },
   ],
 };
+
+const validator = new Validator(validatorConfig);
 ```
 
 And the data could be validated by running:
 ```js
-console.log(new Validator(validatorConfig).validate(data));
-```
-
-The exact same result can be obtained using the fluent API:
-```typescript
-const validator = validatorBuilder()
-    .newRule()
-        .withFieldValueConstraint('op', 'add')
-        .withField('result')
-            .validate(RuleBuilder.exactValue.withValue(11))
-    .newRule()
-        .withFieldValueConstraint('op', 'mul')
-            .validate(RuleBuilder.exactValue.withValue(30))
-    .build();
-
 console.log(validator.validate(data));
 ```
 
 The validator will stop at the first error. If that is not the desired behaviour, it should be called as:
 
 ```js
-console.log(new Validator(validatorConfig).validate(data, true));
+console.log(validator.validate(data, true));
 
 ```
 
 This way it will return an object like:
 
-```js
+```javascript
 {
    valid: false,
    details: [{
@@ -108,7 +110,7 @@ Each RuleSet configuration is composed of 2 elements:
  * constraints - is a set of constraints that must evaluate to `true` for the ruleset to be executed
  * fields - a dictionary of all the fields to be validated. For each field, a set of validation rules can be specified
 
-The configuration could be saved into a JSON file or into a JS file as in the example above.
+The configuration could be saved into a JSON file or into a JS/ts file as in the above examples.
 
 For example, using e JSON file the configuration would be:
 ```json
