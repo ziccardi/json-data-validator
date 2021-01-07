@@ -38,7 +38,7 @@ const validator: Validator = validatorBuilder()
 describe('RequiredBy Validator Builder', () => {
   it('Only name and alias', () => {
     testValidator(validator, {
-      valid: [{name: 'test', webpushAlias: 'mailto:mziccard@redhat.com'}],
+      valid: [{name: 'test', webpushAlias: 'mailto:testmail@test.org'}],
       invalid: [{name: 'test'}],
     });
   });
@@ -47,7 +47,7 @@ describe('RequiredBy Validator Builder', () => {
       valid: [
         {
           name: 'test',
-          webpushAlias: 'mailto:mziccard@redhat.com',
+          webpushAlias: 'mailto:testmail@test.org',
           webpushVapidPublicKey: 'aaa',
           webpushVapidPrivateKey: 'aaa',
         },
@@ -55,7 +55,7 @@ describe('RequiredBy Validator Builder', () => {
       invalid: [
         {
           name: 'test',
-          webpushAlias: 'mailto:mziccard@redhat.com',
+          webpushAlias: 'mailto:testmail@test.org',
           webpushVapidPublicKey: 'aaa',
         },
       ],
