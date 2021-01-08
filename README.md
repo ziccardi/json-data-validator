@@ -200,4 +200,4 @@ All the examples can be found [here](./src/example)
 [david-image]: https://david-dm.org/ziccardi/json-data-validator.svg
 [david-url]: https://david-dm.org/ziccardi/json-data-validator
 [snyk-image]: https://snyk.io/test/github/ziccardi/json-data-validator/badge.svg
-[snyk-url]: https://snyk.io/test/github/google/gts
+[snyk-url]: https://snyk.io/test/github/ziccardi/json-data-validator
