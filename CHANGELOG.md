@@ -1,3 +1,12 @@
+## [3.0.1](https://github.com/ziccardi/json-data-validator/compare/3.0.0...3.0.1) (2021-01-08)
+
+
+### Bug Fixes
+
+* package.json & package-lock.json to reduce vulnerabilities ([b0dbcc0](https://github.com/ziccardi/json-data-validator/commit/b0dbcc06a2533728f2c2689802ba9e480af4cb8f))
+
+
+
 # [3.0.0](https://github.com/ziccardi/json-data-validator/compare/2.4.2...3.0.0) (2021-01-07)
 
 
@@ -41,15 +50,6 @@ call the `build` method to actually build the rule
 
 * added a new 'requiredBy' rule to configure field dependencies ([3014ba1](https://github.com/ziccardi/json-data-validator/commit/3014ba18a73e0f4d386704e36c2c438a60270035))
 * added parameters to the generic rule class to pass the whole form to the validator ([abd9813](https://github.com/ziccardi/json-data-validator/commit/abd98139d52a8ee609284ea46e5047b7cc017bec))
-
-
-
-# [2.3.0](https://github.com/ziccardi/json-data-validator/compare/2.2.0...2.3.0) (2020-09-14)
-
-
-### Features
-
-* 🎸 added IsValidURL builder ([#45](https://github.com/ziccardi/json-data-validator/issues/45)) ([8c3def9](https://github.com/ziccardi/json-data-validator/commit/8c3def977bee429be46ccc268e207596e71c2093))
 
 
 
