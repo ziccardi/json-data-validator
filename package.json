@@ -40,7 +40,7 @@
     "lodash": "4.17.20",
     "moment": "2.29.1",
     "validator": "13.5.2",
-    "yarn": "1.22.0"
+    "yarn": "1.22.10"
   },
   "jest": {
     "preset": "ts-jest",
