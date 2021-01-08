@@ -1,5 +1,13 @@
 # Data Validator
 
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](https://www.typescriptlang.org/)
+![Build](https://github.com/ziccardi/json-data-validator/workflows/CI/badge.svg)
+[![Code Style: Google](https://img.shields.io/badge/code%20style-google-blueviolet.svg)](https://github.com/google/gts)
+[![Renovate](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com)
+[![Dependency Status](https://david-dm.org/ziccardi/json-data-validator.svg)](https://david-dm.org/ziccardi/json-data-validator)
+[![Known Vulnerabilities][snyk-image]][snyk-url]
+
 A simple library to be used to validate JSON file content.
 The validation can be configured using the JSON file format and different kind of validation can be performed when 
 some `constraint` is evaluated.
@@ -188,3 +196,8 @@ factory function that will take the rule configuration as parameter.
 ## Examples
 
 All the examples can be found [here](./src/example)
+
+[david-image]: https://david-dm.org/ziccardi/json-data-validator.svg
+[david-url]: https://david-dm.org/ziccardi/json-data-validator
+[snyk-image]: https://snyk.io/test/github/ziccardi/json-data-validator/badge.svg
+[snyk-url]: https://snyk.io/test/github/google/gts
