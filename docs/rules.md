@@ -776,6 +776,18 @@ Returns a `valid` result if the field value is a valid port number
 
 * **type**: Type must be **isPort**
 
+## isUUID Rule
+Returns a `valid` result if the field value is a valid UUID
+### Configuration
+```json
+{
+  "type": "isUUID",
+  "version": "all"
+}
+```
+* **type**: Type must be **isUUID**
+* **version** can be `3`, `4`, `5` or `all`. If not specified, defaults to `all`
+
 ## matches Rule
 
 Returns a `valid` result if the field value matches the provided regexp
