@@ -24,7 +24,7 @@
   "author": "Massimiliano Ziccardi <massimiliano.ziccardi@gmail.com>",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@types/jest": "26.0.23",
+    "@types/jest": "27.0.2",
     "@types/node": "10.17.59",
     "@types/is-valid-path": "0.1.0",
     "@types/lodash": "4.14.168",
