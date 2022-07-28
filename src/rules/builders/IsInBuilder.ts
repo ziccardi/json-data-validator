@@ -37,4 +37,5 @@ class IsInBuilder implements IsInBuilderFinalInterface {
   }
 }
 
-export const builder: IsInBuilderInterface = new IsInBuilder() as IsInBuilderInterface;
+export const builder: IsInBuilderInterface =
+  new IsInBuilder() as IsInBuilderInterface;
