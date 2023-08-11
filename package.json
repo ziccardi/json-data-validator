@@ -27,7 +27,7 @@
     "@types/jest": "28.1.8",
     "@types/node": "18.17.5",
     "@types/is-valid-path": "0.1.0",
-    "@types/lodash": "4.14.189",
+    "@types/lodash": "4.14.197",
     "@types/validator": "13.11.1",
     "gts": "5.0.0",
     "jest": "28.1.3",
