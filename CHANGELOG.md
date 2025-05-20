@@ -1,3 +1,12 @@
+## [3.0.5](https://github.com/ziccardi/json-data-validator/compare/3.0.4...3.0.5) (2025-05-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency validator to v13.15.0 ([8ba59ca](https://github.com/ziccardi/json-data-validator/commit/8ba59ca18a5490ee52afd38d11fb92c42f99271e))
+
+
+
 ## [3.0.4](https://github.com/ziccardi/json-data-validator/compare/3.0.3...3.0.4) (2025-05-20)
 
 
@@ -41,24 +50,6 @@
 ### Bug Fixes
 
 * package.json & package-lock.json to reduce vulnerabilities ([b0dbcc0](https://github.com/ziccardi/json-data-validator/commit/b0dbcc06a2533728f2c2689802ba9e480af4cb8f))
-
-
-
-# [3.0.0](https://github.com/ziccardi/json-data-validator/compare/2.4.2...3.0.0) (2021-01-07)
-
-
-### Bug Fixes
-
-* 🐛 added build method ([11c9c09](https://github.com/ziccardi/json-data-validator/commit/11c9c09b3eb4656b7ae1afc0d1420b03d3e3916d))
-* 🐛 fixed error message when using path ([cf2bc72](https://github.com/ziccardi/json-data-validator/commit/cf2bc7205e5771641765832e793568f7d8fc399c))
-* 🐛 uniformed the builder interface to the other builders ([67d8f73](https://github.com/ziccardi/json-data-validator/commit/67d8f734755075d868fc94544aaa08ecece43ccb))
-
-
-### BREAKING CHANGES
-
-* 🧨 Now you need to call the `build` method to actually build the rule
-* 🧨 Now even if this builder configures only one property, it is needed to
-call the `build` method to actually build the rule
 
 
 

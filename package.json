@@ -1,6 +1,6 @@
 {
   "name": "json-data-validator",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "description": "Simple framework for dynamic json input validation",
   "main": "build/src/index.js",
   "types": "build/src/index.d.ts",
