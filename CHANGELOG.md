@@ -1,3 +1,13 @@
+## [3.0.4](https://github.com/ziccardi/json-data-validator/compare/3.0.3...3.0.4) (2025-05-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency yarn to v1.22.22 ([84274e3](https://github.com/ziccardi/json-data-validator/commit/84274e35ff4e298dfded908c350e8d980405aabf))
+* upgrade moment from 2.29.4 to 2.30.0 ([79be035](https://github.com/ziccardi/json-data-validator/commit/79be035cf502bbb822e45971ac0c0f85b87f2101))
+
+
+
 ## [3.0.3](https://github.com/ziccardi/json-data-validator/compare/3.0.2...3.0.3) (2023-08-11)
 
 
@@ -49,15 +59,6 @@
 * 🧨 Now you need to call the `build` method to actually build the rule
 * 🧨 Now even if this builder configures only one property, it is needed to
 call the `build` method to actually build the rule
-
-
-
-## [2.4.2](https://github.com/ziccardi/json-data-validator/compare/2.4.1...2.4.2) (2021-01-07)
-
-
-### Bug Fixes
-
-* **deps:** update dependency validator to v13.5.2 ([20cd6ff](https://github.com/ziccardi/json-data-validator/commit/20cd6fff2fdc95a10d62bd86328f52a9a1a197d3))
 
 
 
